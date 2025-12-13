@@ -1,0 +1,71 @@
+Ramakrishna Sen
+
+ +91 9819910999
+
+# senrk2005@gmail.com
+
+ï LinkedIn
+
+§ GitHub
+
+Education
+Indian Institute of Information Technology, Design and Manufacturing
+
+CGPA: 8.0/10
+Integrated B.Tech + M.Tech in Electronics and Communications Engineering
+Kurnool, India
+– Relevant Coursework: Digital Signal Processing, Statistical Signal Analysis, Control Systems, Wireless
+Communications, Machine Learning, Computer Architecture, Probability and Random Processes
+
+Technical Skills
+Signal Processing: DSP Algorithms, SAR Processing, Adaptive Beamforming, Array Signal Processing, STFT,
+Wavelet Analysis, Audio Enhancement
+Programming Languages: Python, C/C++, MATLAB, CUDA, Verilog, RISC-V Assembly
+Tools & Frameworks: PyTorch, NumPy, SciPy, Simulink, Vivado, Cadence Genus/Innovus/Virtuoso, KiCad,
+LTSpice
+Hardware Platforms: STM32F405, Raspberry Pi, Xilinx Zynq FPGA, Microcontroller-based Embedded
+Systems
+
+Experience
+GalaxEye Space
+
+July 2024 – September 2024
+Signal Processing Intern
+Bangalore, India
+– Developed and implemented a SAR autofocus algorithm that improved overall image clarity by 50%, boosting
+PSLR from 9dB to 14dB across diverse terrain and motion profiles
+– Accelerated SAR backprojection pipeline by leveraging CUDA parallelization, resulting in 20% faster
+processing through optimized GPU memory and thread scheduling
+– Validated algorithm performance on 100+ droneSAR datasets, confirming reliability under varying noise
+conditions, terrain complexity, and platform motion
+
+Projects
+Real-Time Audio-Visual Zoom System | Python, Neural Beamforming, DSP
+Ongoing – GitHub
+– Developing an end-to-end real-time audio-visual speech enhancement system using a Neural MVDR
+beamformer for accurate source localization and target amplification
+– Designed a novel microphone-array processing method enabling reliable broadside sound localization with only
+2 microphones, overcoming array geometry limitations
+– Achieved robust interference suppression in environments with 10+ competing speakers through adaptive
+beamforming and spectral masking techniques
+– Validated system effectiveness with 20dB SINR improvement and 2.5+ PESQ score, demonstrating
+strong perceptual and quantitative gains
+4-Point FFT Processor | Verilog, ASIC Flow, VLSI, Hardware Acceleration
+September 2025 – GitHub
+– Designed a pipelined 2-stage Radix-2 DIT FFT processor capable of real-time frequency-domain
+computation for hardware acceleration
+– Lowered total computation latency by 40% by optimizing twiddle-factor multipliers and restructuring
+arithmetic datapaths
+– Completed end-to-end ASIC implementation including RTL design, synthesis (Genus), Place & Route
+(Innovus), timing analysis, and GDSII export on 90nm CMOS
+– Achieved 100 MHz timing closure while minimizing area and power, enabling suitability for edge compute
+accelerators
+
+Leadership & Activities
+Club ElectroniX — Society of Electronics Engineers
+Signal Processing and Controls Research Group Head
+
+Aug 2025 – Present
+IIITDM Kurnool
+
+

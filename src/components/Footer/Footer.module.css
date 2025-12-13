@@ -1,0 +1,13 @@
+.footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--surface0);
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--subtext0);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}

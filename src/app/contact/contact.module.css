@@ -1,0 +1,71 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--mauve), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--subtext0);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: var(--surface0);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--surface1);
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.text {
+    color: var(--text);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    background: var(--mauve);
+    color: var(--base);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(203, 166, 247, 0.4);
+}
+
+.socials {
+    display: flex;
+    gap: 2rem;
+}
+
+.socialLink {
+    color: var(--subtext0);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+    color: var(--mauve);
+}

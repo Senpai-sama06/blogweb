@@ -1,0 +1,71 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.header {
+    margin-bottom: 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--surface0);
+    padding-bottom: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.date {
+    color: var(--overlay1);
+}
+
+.content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.content h1,
+.content h2,
+.content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--mauve);
+}
+
+.content p {
+    margin-bottom: 1.5rem;
+}
+
+.content code {
+    background: var(--surface0);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: var(--peach);
+}
+
+.content pre {
+    background: var(--mantle);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--surface0);
+}
+
+.content pre code {
+    background: none;
+    padding: 0;
+}
+
+/* KaTeX adjustments if needed */
+.content :global(.katex-display) {
+    margin: 2rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
