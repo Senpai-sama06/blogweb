@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getSortedPostsData } from '@/lib/posts';
 import styles from './blog.module.css';
-import ComingSoonCat from '@/components/ComingSoonCat/ComingSoonCat';
+import InteractiveCat from '@/components/InteractiveCat/InteractiveCat';
 
 export default function Blog() {
     const allPostsData = getSortedPostsData();
@@ -24,8 +24,8 @@ export default function Blog() {
                     </Link>
                 ))}
 
-                {/* Coming Soon Placeholder */}
-                <ComingSoonCat />
+                {/* Coming Soon Placeholder with AI Cat */}
+                <InteractiveCat />
             </div>
         </div>
     );

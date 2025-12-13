@@ -1,0 +1,122 @@
+.container {
+    background: var(--surface0);
+    border: 2px dashed var(--surface1);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: crosshair;
+    /* Hint that it's interactive */
+}
+
+.text {
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+    /* Let mouse pass through to container */
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--mauve);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--subtext0);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.catWrapper {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    /* Base size, effectively scale */
+    height: auto;
+    will-change: transform, left;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.tail {
+    transform-origin: 10% 90%;
+    animation: tailIdle 4s ease-in-out infinite alternate;
+}
+
+.legs {
+    transform-origin: top;
+}
+
+/* Walking Animation State */
+.catWrapper[data-moving="true"] .legs {
+    animation: walk 0.4s ease-in-out infinite alternate;
+}
+
+.catWrapper[data-moving="true"] .catBody {
+    animation: bounce 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes tailIdle {
+    0% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes walk {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-2px);
+    }
+}
+
+/* Bonk Effect */
+.bonkEffect {
+    position: absolute;
+    font-weight: 900;
+    color: var(--pink);
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: fadeUp 0.8s ease-out forwards;
+    z-index: 20;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    50% {
+        transform: translate(-50%, -150%) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -200%);
+    }
+}
