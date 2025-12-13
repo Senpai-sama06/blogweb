@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getSortedPostsData } from '@/lib/posts';
 import styles from './blog.module.css';
+import ComingSoonCat from '@/components/ComingSoonCat/ComingSoonCat';
 
 export default function Blog() {
     const allPostsData = getSortedPostsData();
@@ -22,6 +23,9 @@ export default function Blog() {
                         </article>
                     </Link>
                 ))}
+
+                {/* Coming Soon Placeholder */}
+                <ComingSoonCat />
             </div>
         </div>
     );
