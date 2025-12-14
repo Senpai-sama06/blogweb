@@ -129,7 +129,7 @@ export default function InteractiveCat() {
                 const angle = Math.atan2(dy, dx);
 
                 // Limit pupil movement radius
-                const radius = 2;
+                const radius = 3.5;
                 const pupilX = Math.cos(angle) * radius;
                 const pupilY = Math.sin(angle) * radius;
 
@@ -219,12 +219,12 @@ export default function InteractiveCat() {
                         {/* Eyes Container */}
                         <g> {/* No scaleX here, pupils move relative to eye sclera */}
                             {/* Left Eye */}
-                            <circle cx="-8" cy="-2" r="5" fill="white" />
-                            <circle cx={-8 + (facingRight ? leftEyePos.x : -leftEyePos.x)} cy={-2 + leftEyePos.y} r="2" fill="black" />
+                            <circle cx="-8" cy="-2" r="7" fill="white" />
+                            <circle cx={-8 + (facingRight ? leftEyePos.x : -leftEyePos.x)} cy={-2 + leftEyePos.y} r="3.5" fill="black" />
 
                             {/* Right Eye */}
-                            <circle cx="8" cy="-2" r="5" fill="white" />
-                            <circle cx={8 + (facingRight ? rightEyePos.x : -rightEyePos.x)} cy={-2 + rightEyePos.y} r="2" fill="black" />
+                            <circle cx="8" cy="-2" r="7" fill="white" />
+                            <circle cx={8 + (facingRight ? rightEyePos.x : -rightEyePos.x)} cy={-2 + rightEyePos.y} r="3.5" fill="black" />
                         </g>
 
                         {/* Snout */}
