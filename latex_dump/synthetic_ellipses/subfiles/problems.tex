@@ -1,0 +1,111 @@
+\documentclass[subfile]{main.tex}
+
+
+
+\subsection{Problems}
+
+\begin{problem}
+Let $\Gamma$ be an ellipse inscribed in a triangle $ABC$ with foci $P$ and $Q$. Prove that $P$, $Q$ are isogonal conjugates with respect to triangle $ABC$.
+\end{problem}
+
+\begin{problem}
+Let $ABC$ be an acute triangle and $D$ a point on it's interior. Let $E_c$ be the ellipse with focus $D,A$ passing through $C$, $E_b$ the ellipse with focus $D,C$ passing through $B$ and $E_a$ the ellipse with focus $D,B$ passing through $A$. $E_a\cap E_b=P_1,P_2$, $E_a\cap E_c=Q_1,Q_2$, $E_b\cap E_c=R_1,R_2$. Prove that $P_1P_2,Q_1Q_2,R_1R_2$ concur.
+\end{problem}
+
+\begin{problem}[Sharygin CR 2019 P21]
+An ellipse $\Gamma$ and its chord $AB$ are given. Find the locus of orthocenters of triangles $ABC$ inscribed into $\Gamma$.
+\end{problem}
+
+\begin{problem}
+Let $S_1$ be one of the focus of an ellipse and $A$ and $B$ be its two vertices. If two parabolas with vertex $A$ and $B$ respectively, having the same focus $S_1$ intersect at points $E$ and $F$, then prove:
+\begin{enumerate}
+    \item The two parabolas are orthogonal to each other
+    \item The line EF passes through the other focus of the ellipse
+\end{enumerate}
+\end{problem}
+\begin{center}
+Hide diagram which publishing
+\begin{asy}
+ /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(15cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -7.064468507799478, xmax = 6.635714970028591, ymin = -2.165316580217529, ymax = 3.8924512240344575;  /* image dimensions */
+pen qqffff = rgb(0,1,1); pen qqwuqq = rgb(0,0.39215686274509803,0); 
+
+draw((0.2508048393645657,-1.6586913852987095)--(0.05587252143069951,-1.5734474243149683)--(-0.029371439553041723,-1.7683797422488345)--(0.16556087838082445,-1.8536237032325757)--cycle, linewidth(2) + qqwuqq); 
+ /* draw figures */draw(shift((-1.0786537614336138,0.8413205969131048))*rotate(0.06095366358184751)*xscale(1.8325952591034413)*yscale(1.3481332114109819)*unitcircle, linewidth(0.8)); 
+real parabola1 (real x) {return x^2/2/1.182496636167356;} 
+draw(shift((-2.9112479835080944,0.8393710052541006))*rotate(-89.93904633641816)*graph(parabola1,-7.094979817004136,7.094979817004136), linewidth(0.8) + qqffff); /* parabola construction */
+real parabola2 (real x) {return x^2/2/6.147884400246407;} 
+draw(shift((0.7539404606408668,0.8432701885721087))*rotate(-269.9390463364182)*graph(parabola2,-24.591537600985628,24.591537600985628), linewidth(0.8) + qqffff); /* parabola construction */
+draw((xmin, -939.9887477004554*xmin + 153.77173903414598)--(xmax, -939.9887477004554*xmax + 153.77173903414598), linewidth(0.8) + linetype("2 2") + qqwuqq); /* line */
+draw((0.5442812965859634,-0.9875817206962215)--(-0.22252866068910637,-2.741090598761004), linewidth(0.4)); 
+draw((1.187676807549264,-2.3005953050192782)--(-0.7189256007418362,-1.4668375011490484), linewidth(0.4)); 
+draw((-3.502495967016189,0.838742010508201)--(3.827880921281734,0.8465403771442171), linewidth(0.8) + linetype("4 4")); 
+ /* dots and labels */
+dot((-2.32,0.84),dotstyle); 
+label("$S_1$", (-2.240318981565729,0.4423318123412732), NE * labelscalefactor); 
+dot((0.16269247713277218,0.8426411938262094),dotstyle); 
+label("$S_2$", (0.2870940758373996,0.39218472786898856), NE * labelscalefactor); 
+dot((-2.9112479835080944,0.8393710052541005),linewidth(4pt) + dotstyle); 
+label("$A$", (-3.2633195048003283,0.3420376433967039), NE * labelscalefactor); 
+dot((0.7539404606408672,0.8432701885721086),linewidth(4pt) + dotstyle); 
+label("$B$", (1.0693885936050347,0.32197880960779), NE * labelscalefactor); 
+dot((0.15982407588472053,3.5389060908849954),linewidth(4pt) + dotstyle); 
+label("$E$", (0.6983001685101308,3.3207744610504126), NE * labelscalefactor); 
+dot((0.16556087838082445,-1.8536237032325757),linewidth(4pt) + dotstyle); 
+label("$F$", (-0.40493568988012363,-2.0549929943785026), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+    
+\end{center}
+
+\begin{definition}
+Hello world this
+\end{definition}
+
+\begin{problem}
+In an ellipse $\varepsilon$, let the intersection of tangents to the extremities of the major axis meet the tangent to a variable point $P$ on the ellipse at $A$ and $B$. Prove cyclicity between $ABF_1F_2$, where $F_1$ and $F_2$ are the two foci.
+\end{problem}
+
+\begin{problem}[ISL 1969 Belgium]
+Find the equations of regular hyperbolas passing through the points $A(\alpha, 0), B(\beta, 0),$ and $C(0, \gamma).$
+$(b)$ Prove that all such hyperbolas pass through the orthocenter $H$ of the triangle $ABC.$
+$(c)$ Find the locus of the centers of these hyperbolas.
+$(d)$ Check whether this locus coincides with the nine-point circle of the triangle $ABC.$
+\end{problem}
+
+\begin{problem}[ISL 1969 Belgium]
+Let $O$ be a point on a nondegenerate conic. A right angle with vertex $O$ intersects the conic at points $A$ and $B$. Prove that the line $AB$ passes through a fixed point located on the normal to the conic through the point $O.$
+\end{problem}
+\begin{problem}[ISL 1969 Belgium]
+Let $G$ be the centroid of the triangle $OAB.$
+$(a)$ Prove that all conics passing through the points $O,A,B,G$ are hyperbolas.
+$(b)$ Find the locus of the centers of these hyperbolas.
+\end{problem}
+
+\begin{problem}[Sharygin finals 2017]
+If $ABC$ is acute triangle, prove distance from each vertex to corresponding excentre is less than sum of two greatest side of triangle
+\end{problem}
+\begin{remark}
+In this problem, we have a simple triangle inequality popping, but the author (wizardmath) also talked about something called "animation with point $A$ to locate an ellipse" (thanks anant mudgal)
+\end{remark}
+\begin{problem}[2014 KoMaL Hungary]
+The konvex quadrilateral $ABCD$ has an inscribed circle with center $I$. The rays $AB$ and $DC$ meet at point $F$, the rays $AD$ and $BC$ meet at point $G$. Let E be the ellipse with foci $F$ and $G$ that passes through points $B$ and $D$, and let H be the hyperbola branch with foci $F$ and $G$ that passes through points $A$ and $C$. Denote by $P$ and $Q$ the intersections of E and H. Show that the points $P, Q$ and $I$ are collinear.
+\end{problem}
+\begin{problem}[IGMO 2020 Round 2 P5]
+A non-rectangular trapezoid is called a Pepe Trapezoid if
+$(a)$ it has integral side lengths, and
+$(b)$ An ellipse that is not a circle with integral lengths of semi-major axis and semi-minor axis can be inscribed in the trapezoid such that the major axis or minor axis of the ellipse is perpendicular to the bases of the trapezoid.
+
+Prove or disprove that there are infinitely many non-similar Pepe trapezoids.
+\end{problem}
+\begin{problem}[Oral Moscow Team MO 2021 X-XI p6]
+In the tangential quadrilateral $ABCD$, the point $I$ is the center of the inscribed circle. Rays $AB$ and $DC$ meet at $F$, and rays $AD$ and $BC$ meet at $G$ . Ellipse $\omega$ with focuses at $F$ and $G$ passes through points$ B$ and $D$. The branch of the hyperbola $\gamma$ with focuses at $F$ and $G$ passes through the points $A$ and $C$. Curves $\omega$ and $\gamma$ meet at points $P$ and $Q$. Prove that points $I,P$ and $Q$ are collinear
+\end{problem}
+\begin{problem}[2020 Instagram Math Olympiad IGMO - Shortlist g3]
+For any given ellipse $\omega$ , let P be a point external to it. $A$ and $B$ are points on $\omega$ such that $P A$ and $P B$ are tangent to $\omega$ . C, D $\omega$ and E are points on $\omega$ such that $AC = CD = DE = EB$. Lines $P C, P D, P E$ meets $\omega$ again at points $F, G, H$, respectively. $M_1, M_2, M_3$ are midpoints of $CF, DG$ and $EH$, respectively. Prove that $P, A, B, M_1, M_2$ and $M_3$ lie on an ellipse.
+\end{problem}

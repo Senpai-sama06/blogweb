@@ -1,0 +1,31 @@
+ /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(7cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -15.59413416595416, xmax = 27.09118576920159, ymin = -10.28758315092448, ymax = 8.586452896538217;  /* image dimensions */
+
+ /* draw figures */draw(shift((0.9987515959479094,0.33))*rotate(-1.4858001381307109)*xscale(4.5674052124427496)*yscale(3.6841593611050265)*unitcircle, linewidth(0.8)); draw(shift((4.12750319189582,-1.94))*rotate(-78.94070363293243)*xscale(4.523886252790249)*yscale(3.9294588467350766)*unitcircle, linewidth(0.8)); draw(shift((5.0287515959479085,1.86))*rotate(50.23851940220572)*xscale(3.6896883716273314)*yscale(3.0465682277655803)*unitcircle, linewidth(0.8)); 
+draw((1.7515065217038295,1.7978510790635842)--(7.53850445647632,0.12612416436045404), linewidth(0.8)); 
+draw((2.641418802211332,3.7531070784150136)--(4.964827037121927,-1.5326898908742206), linewidth(0.8)); 
+draw((0.43486712150317164,-3.32128985183861)--(4.677503191895819,2.48), linewidth(0.8)); 
+ /* dots and labels */
+dot((-1.7,0.4),dotstyle); 
+dot((3.6975031918958186,0.26),dotstyle); 
+label("$O$", (3.248653477456468,-0.9130619352973116), NE * labelscalefactor); 
+dot((4.557503191895819,-4.14),dotstyle); 
+dot((6.36,3.46),dotstyle); 
+dot((0.43486712150317164,-3.32128985183861),linewidth(4pt) + dotstyle); 
+label("$F$", (-0.3761613925860405,-4.319137976975182), NE * labelscalefactor); 
+dot((2.641418802211332,3.7531070784150136),linewidth(4pt) + dotstyle); 
+label("$A$", (2.029965719424935,4.555408773818536), NE * labelscalefactor); 
+dot((4.964827037121927,-1.5326898908742206),linewidth(4pt) + dotstyle); 
+label("$B$", (5.092309316529813,-1.2880427839223982), NE * labelscalefactor); 
+dot((1.7515065217038295,1.7978510790635842),linewidth(4pt) + dotstyle); 
+label("$D$", (0.8737747694975833,2.1180332577554726), NE * labelscalefactor); 
+dot((7.53850445647632,0.12612416436045404),linewidth(4pt) + dotstyle); 
+label("$C$", (8.467136954155597,-0.25684545020340993), NE * labelscalefactor); 
+dot((4.677503191895819,2.48),linewidth(4pt) + dotstyle); 
+label("$E$", (5.061060912477723,2.992988571214008), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */

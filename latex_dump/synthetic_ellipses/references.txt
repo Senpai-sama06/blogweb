@@ -1,0 +1,36 @@
+EUCLIDEAN PLANE
+-----------------------------------------------
+
+Conics by akopyan arseniye
+
+measurements by paul lockhart
+
+stackexchange (how to uniquely determine an ellipse) : https://math.stackexchange.com/questions/3063610/how-many-points-are-needed-to-uniquely-define-an-ellipse
+
+power overwhelming blog by evan chen https://blog.evanchen.cc/tag/ellipses/
+
+isogonal properties of ellipses by darij greenberg
+
+
+_______________________________________________
+INVERSIVE PLANE
+-----------------------------------------------
+
+poncelet's porism and stieners porism for ellipses - cut-the-knot.org and projecteuclid.org
+
+
+
+______________________________________________
+PROJECTIVE PLANE
+----------------------------------------------
+
+two theorems on focus sharing ellipses - paper by ilya bogdanov
+
+
+
+______________________________________________
+INTUITIONS USING CALCULUS
+----------------------------------------------
+
+billiards in ellipses by arseniy akopyan
+

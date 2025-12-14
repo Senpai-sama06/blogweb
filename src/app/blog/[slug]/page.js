@@ -14,6 +14,8 @@ export async function generateStaticParams() {
     }));
 }
 
+import Comments from '@/components/Comments/Comments';
+
 export default function Post({ params }) {
     const postData = getPostData(params.slug);
 
@@ -22,7 +24,18 @@ export default function Post({ params }) {
             <article className={styles.article}>
                 <header className={styles.header}>
                     <h1 className={styles.title}>{postData.title}</h1>
-                    <p className={styles.date}>{postData.date}</p>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+                        <p className={styles.date}>{postData.date}</p>
+                        {postData.tags && postData.tags.map(tag => (
+                            <span key={tag} style={{
+                                background: 'var(--surface1)',
+                                padding: '0.2rem 0.6rem',
+                                borderRadius: '4px',
+                                fontSize: '0.8rem',
+                                color: 'var(--subtext1)'
+                            }}>#{tag}</span>
+                        ))}
+                    </div>
                 </header>
                 <div className={styles.content}>
                     <ReactMarkdown
@@ -32,6 +45,8 @@ export default function Post({ params }) {
                         {postData.content}
                     </ReactMarkdown>
                 </div>
+
+                <Comments />
             </article>
         </div>
     );

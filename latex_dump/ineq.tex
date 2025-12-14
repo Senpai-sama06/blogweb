@@ -1,0 +1,103 @@
+\documentclass{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+
+\title{Inequalities}
+\author{Ramakrishna Sen}
+\date{February 2021}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The sum of squares}
+\begin{lemma}[SOS send help!]
+For any set of reals $a_i,a_j$ for $i,j\in$ $\mathbb{N}$ then $$\sum (a_i\pm a_j)\ge 0$$
+\end{lemma}
+\subsection{The AM-GM inequality}
+\begin{theorem}[Two variables]
+For any real numbers $a$ and $b$ $$\frac{a+b}{2}\ge \sqrt{ab}$$
+\end{theorem}
+The above theorem is also true for $n$ variables.\newline
+What this implies is that $a^2+b^2\ge 2ab$ or $a^3+b^3+c^3\ge 3abc$. So we get new inequalities by adding these basic ones up or possible subtraction (getting the idea we do certain operations to get our result).
+\begin{exercise}
+Prove the above 
+\end{exercise}
+\begin{exercise}
+Prove that $a^2+b^2+c^2\ge ab+bc+ca$
+\end{exercise}
+\begin{exercise}
+Prove that $\sum\limits_{cyc}^c a^4\ge \sum\limits_{cyc}^c a^2bc$
+\end{exercise}
+The fundamental intuition is being able to decide which symmetric polynomials of a given degree are bigger. For example, for degree 3, the polynomial $a^3+b^3+c^3$ is biggest and $abc$ is the smallest. Roughly, the more “mixed” polynomials are the smaller. From
+this, for example, one can immediately see that the inequality $$(a+b+c)^3\ge a^3+b^3+c^3+24abc$$ must be true, since upon expanding the LHS and cancelling $a^3+b^3+c^3$,we find that the RHS contains only the piddling term $24abc$. That means a straight AM-GM will suffice.
+\begin{problem}
+Let $a_1a_2a_3...a_n=1$ then prove that $(1+a_1)(1+a_2)(1+a_3)...(1+a_n)\ge 2^n$
+\end{problem}
+\begin{soln}
+We use AM-GM on the factors of the LHS. So we get $(1+a_i)\ge 2\sqrt{a_i}$. Furthermore generalize this for all terms to get the proof.
+\end{soln}
+\begin{problem}[Nesbitt's]
+If $a,b,c$ are the sides of a triangle then prove that $$\frac{3}{2}\le \frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{b+a}<2$$
+\end{problem}
+\begin{soln}
+There are two parts to this. First we prove its lower part, then we prove its larger part.\newline
+Hint is that we would be using \alert{Lemma 1.8} and \alert{Lemma 1.9}.
+So we want to make LHS look better (bring it in AM-GM type form, we cannot exactly bring up an AM GM type situation, but it helps in this case). So we get $(a+b+c)\left(\frac{1}{b+c}+\frac{1}{b+a}+\frac{1}{a+c}\right)\ge \frac{9}{2}$. \newline
+Oops now we need to handle the 2 in the division. Well nevermind, we have this trick called "the overlap". After using the overlap technique, the result becomes trivial to prove later on with \alert{Lemma 1.9}
+\end{soln}
+\begin{lemma}[The overlapping trick]
+for any real numbered sum lets say $a+b+c$ then put $x=a+b,y=b+c,z=c+a$. if you are lucky it would work.
+\end{lemma}
+\begin{lemma}
+For any real number $a$ $$a+\frac{1}{a}\ge 2$$
+\end{lemma}
+\begin{problem}
+Prove that $$\sum\limits_{i=1}^4 \frac{a_i}{a_{i}+a_{i+1}}\ge \sum\limits_{i=1}^4 \frac{a_i}{a_{i+1}+a_{i+2}}$$
+\end{problem}
+\begin{problem}
+If $a,b,c\in \mathbb{R^+}$ then prove $$\left(\frac{a+b}{2}\right)\left(\frac{b+c}{2}\right)\left(\frac{c+a}{2}\right)\ge \left(\frac{a+b+c}{3}\right)(abc)^{2/3}$$
+\end{problem}
+Hint for this problem would be to have a nice substitution for a's and the b's and the c's. Actually any simple sort of inequalities like these has a first step to simplify the inequality into something accessible and breakable. For that either factorization works or substitution of these into some individual variable does. Thats what we do here. \alert{Substitutions should be made with some ground underneath or else any random substitution is just baseless}.
+
+For the above problem this is to have $x=\frac{a}{a+b+c}$ and $y,z$ similarly, so that $x+y+z=1$ which would make sense to continue.
+\section{Cauchy-Schwarz inequality}
+\begin{theorem}[Cauchy in vector form]
+$$||x||\cdot||y||\ge|\overrightarrow{x}\cdot\overrightarrow{y}|$$
+\end{theorem}
+The proof of this result is nice and mandatory. Khan academy has a video on it. Check it out \href{https://youtu.be/r2PogGDl8_U}{here}
+\begin{theorem}[Cauchy in arithmetic form]
+$$\sum (a_ib_i)^2\ge \sum (a_i)^2(b_i)^2$$
+\end{theorem}
+\begin{example}
+Let $a,b,c$ be reals then prove that $$\frac{a^2}{b^2}+\frac{b^2}{c^2}+\frac{c^2}{a^2}\ge \frac{a}{c}+\frac{c}{b}+\frac{b}{a}$$
+\end{example}
+So before doing the solution, the walkthrough.\newline
+Now $\frac{a}{c}+\frac{c}{b}+\frac{b}{a}=\sum\frac{a}{b}\cdot\frac{b}{c}$ (I'll be writing summation symbols because it is short-hand notation). Now notice that the RHS is of the form $\sum (a_i)(b_i)$ and it looks familiar. So Cauchy's inequality works here.
+\begin{soln}
+Write RHS as $\sum\frac{a}{b}\cdot\frac{b}{c}$. Then Cauchy-Schwarz here would give $$\sum\frac{a}{b}\cdot\frac{b}{c}\le \left(\sum\frac{a}{b}\right)^{1/2}\left(\sum\frac{b}{c}\right)^{1/2}$$ Solving this would give our original inequality.
+\end{soln}
+\begin{example}
+For $a_1,a_2,...,a_n,A\in \mathbb{R}$, $$A+\sum\limits_{k=1}^{n}a_k^2<\frac{1}{n-1}\left(\sum\limits_{k=1}^{n}a_k\right)^2$$
+\end{example}
+\begin{example}
+Prove the inequality $$\left(\sum\limits_{sym}a^2b\right)\left(\sum\limits_{sym}ab^2\right)\ge 3a^2b^2c^2$$
+\end{example}
+Lets write this down to the expanded form, 
+$(a^2b+b^2c+c^2a)(ab^2+bc^2+ca^2)\ge 3a^2b^2c^2$ doing the product, we would get $\sum a^3b^3+\sum a^2b^2c^2+abc\left(\sum a^3\right)$
+\subsection{Root Mean Square inequality}
+\subsection{Titu's Lemma}
+It is a consequence of the Cauchy-Schwarz inequality.
+\begin{lemma}[Titu's Lemma]
+$$\sum \frac{a_i^2}{b_i}\ge \frac{\sum a_i^2}{\sum b_i}$$
+\end{lemma}
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,262 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{hyperref}
+
+\title{Combinatorics 4}
+\subtitle{OMC- Group Red}
+\author{Ramakrishna Sen, Sricharan AR\thanks{Contact at onlinemathclub4@gmail.com}}
+
+\date{15th March 2020}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\section{Two basic facts}
+\begin{fact}[Addition principle]
+Let $A_1$ and $A_2$ be disjoint events, that is events having no common outcomes, with n1 and n2 possible outcomes, respectively. Then the total number of outcomes for the event "$A_1$ or $A_2$" is $n_1 + n_2$.
+\end{fact}
+
+\begin{fact}[Multiplication principle]
+Let $A_1, A_2,\cdots A_k$ be events with $n_1, _n2, ... n_k$ possible outcomes, respectively. Then the total number of outcomes for the sequence of these k events is $n_1\times n_2 \times  ... \times n_k$.
+\end{fact}
+I am also providing some exercises under this segment for completion.
+\begin{exercise}
+A college offers 7 courses in the morning and 5 in the evening. Find the possible number of choices with the student if he wants to study one course in the morning and one in the evening.
+\end{exercise}
+\begin{exercise}
+A person wants to go from station A to station C via station B. There are three routes from A to B and four routes from B to C. In how many ways can he travel from A to C ?
+\end{exercise}
+\begin{exercise}[JEE Mains 2002]
+Find the total number of 4 digit numbers with the digits $0,1,2,3,5,7$ where repetition is allowed
+\end{exercise}
+\begin{exercise}[CMI 2011 UG entrance subjective]
+Let S be the set of all 5-digit numbers that contain the digits 1,3,5,7 and 9 exactly once
+(in usual base 10 representation). Show that the sum of all elements of S is divisible by
+11111. Find this sum.
+\end{exercise}
+\begin{exercise}[JEE Mains 2012]
+The number of ways in which three identical balls, but of different colour could be selected from a group of 10 white, 9 green and 7 black balls is?
+\end{exercise}
+\begin{exercise}[CMI 2011 UG entrance objective]
+The word MATHEMATICS consists of 11 letters. The number of distinct ways to rearrange these letters is?
+\end{exercise}
+
+\begin{exercise}[JEE Mains 2004]
+How many ways are there to arrange the letters of the word $GARDEN$ in alphabetical order?
+\end{exercise}
+\begin{exercise}
+There are 8 boys and 7 girls in a group. For each of the tasks specified below, write an
+expression for the number of ways of doing it.
+\begin{itemize}
+    \item Sitting in a row so that all boys sit contiguously and all girls sit contiguously, i.e., no girl sits between any two boys and no boy sits between any two girls
+    \item Sitting in a row so that between any two boys there is a girl and between any two girls there is a boy
+    \item Choosing a team of six people from the group.
+    \item Choosing a team of six people consisting of unequal number of boys and girls
+\end{itemize}
+\end{exercise}
+\begin{remark}[More techniques]
+There are some techniques which are worth noting in this section like Principle of Inclusion exclusion, Complementary and constructive counting, fractional steps and classification and possibly even counting in two ways. Some of the exercise problems also use these techniques for an elegant solution. Try to append more of these in your repertoire.
+\end{remark}
+
+\section{Permutation and Combinations}\label{sec:pnc}
+This section generally talks about how we group things and how many ways are there to "combine" or "permute" a couple of objects. We are only interested in counting the ways of doing stuff (vaguely).
+
+\begin{definition}[Combination]
+We denote the number of ways of combining of choosing $n$ 
+objects from $m$ where obviously $m\ge n$ is denoted by 
+${m}\choose {n}$
+\end{definition}
+Once we have the number of combinations, we would easily have the number of permutations because $$^nP_m={n\choose m}\cdot m!$$
+\begin{problem}
+Let $S$ be the set of all numbers which could be 5made using the digits $1,3,5,7$, then find out
+\begin{itemize}
+    \item Cardinality of $S$
+    \item Sum of all elements of $S$
+\end{itemize}
+\end{problem}
+\begin{soln}
+For the first part : We are going to have that the number of elements would be $\left(^4P_1+^4P_2+^4P_3+^4P_4\right)=64$
+
+Now for the second part, the sum of the elements in the sum is to club two numbers in such a way that we club any two numbers such that the sum in a group remains the same.
+\end{soln}
+\begin{problem}\label{pnc:nonnegsol}
+What is the number of solutions to the equation $x+y+z=10$?
+\end{problem}
+\begin{exercise}
+Generalise \autoref{pnc:nonnegsol}
+\end{exercise}
+\begin{problem}
+Find the number of diagonals of a regular $n$-gon.
+\end{problem}
+\begin{ques}
+What happens when it is an irregular $n$-gon?
+\end{ques}
+\subsection{Circular permutations}
+So evidently we are going to have the circular permutations to be $(n-1)!$ in here because we are to consider the shift operation as a group. I'll elaborte what I mean in the following proposition
+\begin{definition}[Shift operation]
+We are to shift the places of each permutation of a particular set or an object. for example, in case of the permutation of $ABCD$, our shift operation would yeild the result $ABCD\mapsto DABC$
+\end{definition}
+\begin{proposition}
+Consider that we have a particular permutation of $ABCD$ around the circle. Then obviously we notice that a shift over all the elements of the permutations are just the copies of itself, just rotated by a unit. By our claim we can prove that there are $n$ such groups. Hence our total permuattions are going to be $\frac{n!}{n}=(n-1)!$
+\end{proposition}
+\begin{exercise}
+If 16 persons are sitting in a circle . Find out the number of ways of selecting 5 persons such that no two of them are consecutive.
+\end{exercise}
+\begin{exercise}
+Find the number of ways in which 6 persons $A,B,C,D,E,F$ can be seated in a ring so that $A$ sits between $B$ and $C$.
+\end{exercise}
+\begin{theorem}[Principle of Inclusion and Exclusion]
+Let $|\cdot |$ denote the cardinality or the number of elements in set $(\cdot )$ then the principle of inclusion exclusion states that, $$|A\cup B|=|A|+|B|-|A\cap B|$$ for two joint sets $A,B$
+\end{theorem}
+
+Proof of this one is very simple and intuitive when looked upon pictorially. What if we were to have 3 such sets? What happens in 4?
+\begin{ques}
+Can we generalize PIE for $n$ sets?
+\end{ques}
+\begin{exercise}
+Try constructing the picture for PIE in four sets
+\end{exercise}
+\subsubsection*{Problems for this section}
+\begin{problem}[AIME 2011]
+In a town of $351$ adults, every adult owns a car, motorcycle, or both. If $331$ adults own cars and $45$ adults own motorcycles, how many of the car owners do not own a motorcycle?
+\end{problem}
+
+
+\section{Combinatorial Identities}\label{sec:identities}
+In this section, we would work as a story (inspired from Vilenkin. However all our work and proofs are based on the idea called combinatorial arguments. The basic idea is to support the proof with no rigorous mathematics (mostly it is algebra) but with logic.
+
+So here is our first result
+\begin{theorem}\label{sec:i1}
+For all $n,r$ $${n\choose r}={n\choose n-r}$$
+\end{theorem}
+\begin{proof}[Proof of \autoref{sec:i1}]
+$n\choose r$ signifies the choosing of $r$ people from a committee of $n$. On the other hand $n\choose n-r$ means to choose the people to be eliminated among the committee, which is the same. The idea behind being, the number of ways of elimination is the same as the number of ways of selection.
+\end{proof}
+\begin{exercise}
+Do the algebraic proof
+\end{exercise}
+
+\begin{theorem}[Pascal's identity]\label{sec:pascal}
+$${n-1\choose r-1}+{n-1\choose r}={n\choose r}$$
+\end{theorem}
+\begin{proof}[Proof of \autoref{sec:pascal}]
+We want to count the number of ways we can choose $r$ out of $n$. We are already aware of how to do it practically, however we can count it in another way.
+
+Notice that in the set \{$0,1,2,\cdots,n$\} any one element supose $k$ is chosen. In all of the possible $r$ choices, there would be some subsets containing that element $k$ and there would be some other choices which would not contain that element $k$. The total number of ways should give us the total count of our final choice. Total number choices containing $k$ is ${n-1}\choose {r-1}$ and the number of ways to choose the sets without $k$ in it is $n-1\choose r$ hence our result is proven!
+\end{proof}
+\begin{theorem}\label{i3}
+$${n\choose m}{m\choose k}={n\choose k}{n-k\choose m-k}$$
+\end{theorem}
+\begin{proof}
+The Left hand side counts a set via which we can form $m-$sized committees and choose $k$ special members from the committee. On the right hand side, the set counts the number of ways to choose the $k$ special members first and then the number of ways to form the rest of the committee members.
+\end{proof}
+\begin{theorem}\label{i4}
+$$m{n\choose m}=n{n-1\choose m-1}$$
+\end{theorem}
+\begin{proof}
+This is just a special case of \autoref{i3}, just put $k=1$ and we solve it.
+\end{proof}
+
+The motivation for this one was simply noticing the fact that ${n\choose1}=n$ and so on...
+\begin{theorem}
+$${r\choose r}+{r+1\choose r}+\dots+{r+k\choose r}={r+k+1\choose r+1}$$
+\end{theorem}
+
+\section{Bijections}
+\begin{definition}[Injective function]
+An injective function between to sets is a mapping, such that the number of elements in $A\le B$.
+\end{definition}
+\begin{example}
+Let in an auditorium we have 200 seats, provided we cannot have two students cannot sit in the same seat. So there are $\le 200$ students because we do not necessarily have to have all the seats full, but atleast some of them. Its called to have "every element in $A$ has a pre-image in $B$".
+\end{example}
+
+\begin{definition}[Surjective Functions]
+This is when $|A| \ge |B|$
+\end{definition}
+
+\begin{definition}
+Bijection is called to be happening when in the same auditorium, no. of seats = no. of students. technically bijection should imply this, but i did it the other way round for simplicity.
+\end{definition}
+
+\begin{example}\label{sec:lattice_paths}
+Find the number of ways to go from $(0,0)$ to $(4,3)$ in the coordinate system, without turning back or left. With only the moves up and right.
+\end{example}
+The idea here is that, there is a bijection between the number of ways to get from $(0,0)$ to $(4,3)$ to the number of permutations of the number of rights taken and the number of ups taken. This particularly easy to count set is our principle bijective set (some tough words here). What I mean is that it is the set which is not only bijective, it is also easier to count.
+
+So after we have this in our minds, it is just a two line solution.
+\begin{proof}[Solution to \autoref{sec:lattice_paths}]
+We state that there is a bijection between the total number of paths, and the numer of ways or arranging $4Rs$ and $3Us$ which is $7\choose 3$.
+\end{proof}
+\begin{problem}
+Find the number of solutions to the equation $a_1+a_2+\cdots+a_r=n$
+\end{problem}
+Here we introduce the idea of delimiters which is commonly known as stars and bars thingy. Check out Pablo Soberon's book for more on it.
+
+More from the delimiters, I now present another problem.
+\begin{example}
+In the set $X=$ \{$a_1,a_2,\cdots,a_n$\}. Find the number of ways to form subsets of size $k$ such that no two consecutive elements are included.
+\end{example}
+This is called the 'wall method'. Well its not really called the anything, so you are free to give any name to it (like I did).
+So we take an example. Suppose there are $k$ ice-creams and $n-k$ walls. We do not want any two consecutive ice-creams, hence so we put in the $k-1$ walls in between every two ice-creams. Now we were supposed to use up $n-k$ walls, but we only used up $k-1$ of them. Hence $n-2k+1$ are yet to be used. Now is the point to declare the bijection, because for every arrangement of the walls and ice-creams we would have one valid subset. Hence the total number of ways of placing the left out walls is going to be the number of weak compositions of $n-2k+1$ into $k+1$. This is going to be $${(n-2k+1)+(k+1)-1\choose k+1-1}={n-k+1\choose k}$$
+
+\begin{soln}
+We claim that the number of ways of creating this subset is going to be equal to the arrangements formed by $k$ dots ($\cdot$) and $n-k$ bars ($\mid$). First we make sure that there are no consecutive dots. So we arrange the $k$ dots and then use $k-1$ bars to separate the $a_i$th and $a_{i+1}$th dots. Now we have to arrange the remaining $n-2k+1$ bars. Now the number of weak compositions into $k+1$ are the total possible permutations. This is $${(n-2k+1)+(k+1)-1\choose k+1-1}={n-k+1\choose k}$$
+\end{soln}
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Problems}
+\begin{problem}[IMO 1988/3]\label{p1}
+Let $ n$ and $ k$ be positive integers and let $ S$ be a set of $ n$ points in the plane such that
+\begin{itemize}
+
+\item No three points of $ S$ are collinear, and
+\item For every point $ P$ of $ S$ there are at least $ k$ points of $ S$ equidistant from $ P.$
+
+\end{itemize}
+Prove that:
+\[ k < \frac {1}{2} + \sqrt {2 \cdot n}
+\]
+\end{problem}
+\begin{problem}\label{p2}
+A permutation $ \{x_1, x_2, \ldots, x_{2n}\}$ of the set $ \{1,2, \ldots, 2n\}$ where $ n$ is a positive integer, is said to have property $ T$ if $ |x_i - x_{i + 1}| = n$ for at least one $ i$ in $ \{1,2, \ldots, 2n - 1\}.$ Show that, for each $ n$, there are more permutations with property $ T$ than without.
+\end{problem}
+
+\begin{problem}\label{p3}
+Prove that the no. of isosceles triangles with integer sides, no sides exceeding n is $\frac{1}{4}(3n^2+1)$ or $\frac{3}{4}n^2$ according as n is odd or even, n is any integer.
+\end{problem}
+
+\begin{problem}\label{p4}
+Find the number of binary sequences with $m$ 0's and $n$ 1's such that no to consecutive 1's stand together. Find it with an additional constraint with $n\leq m+1$
+\end{problem}
+\begin{problem}[RMO 1994]
+Find all 6-digit numbers $a_1a_2a_3a_4a_5a_6$ formed by using the digits $1,2,3,4,5,6$ once each such that the number $a_1a_2a_2\ldots a_k$ is divisible by $k$ for $1 \leq k \leq 6$.
+\end{problem}
+\begin{problem}
+The $64$ squares of an $8 \times 8$ chessboard are filled with positive integers in such a way that each integer is the average of the integers on the neighbouring squares. Show that in fact all the $64$ entries are equal.
+\end{problem}
+\begin{problem}[PRMO 2016]
+Find the total number of times the digit ‘$2$’ appears in the set of integers $\{1,2,..,1000\}$. For example, the digit ’$2$’ appears twice in the integer $229$.
+\end{problem}
+\begin{problem}
+Let $N=6+66+666+....+666..66$, where there are hundred $6's$ in the last term in the sum. How many times does the digit $7$ occur in the number $N$
+\end{problem}
+\begin{problem}
+What is the number of ways in which one can color the squares of a $4\times 4$ chessboard with colors red and blue such that each row as well as each column has exactly two red squares and two blue squares?
+\end{problem}
+
+
+
+\end{document}

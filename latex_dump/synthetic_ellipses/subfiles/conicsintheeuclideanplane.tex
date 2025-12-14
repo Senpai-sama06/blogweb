@@ -1,0 +1,45 @@
+\documentclass[subfile]{main.tex}
+
+\section{Euclidean plane}
+The euclidean plane is the simplest, oldest and one of the most fundamental planes of all. It was introduced by the ancient greek mathematician Euclid of Alexandria, hence the name. 
+
+\subsection{Conics in the euclidean plane}
+
+The four conics : Circle, parabola, ellipse and hyperbola, all of which are second degree curves preserve certain properties which come from the way they are constructed. We talk about yet another definition of conics here which is called its eccentricity. In case of ellipses, as Grant Sanderson mentions in his video we will occasionally call it the "squishability" of the ellipse.
+
+In the next section, we talk about the motivations on the construction of ellipses in the euclidean plane, different methods and how all of them are infact indicating to one and the same thing- The defining factor about the ellipse.
+
+\subsection{"Slicing" on a cake}
+After answering the question of what an ellipse actually is, the question is how do we construct one. There are two formal methods of contructing an ellipse; one that starts of using two thumbtacks and a pen with a string that wraps around the thumbtacks and the pen. Keeping the string taut, you trace out a shape and it hopefully is an ellipse. The other way is a little bit rigorous, as it uses hypothesis and an intuitive construction of ellipses; namely the slicing of a cone shaped cake by a plane knife at a certain angle. After the intersection, the plane figure formed is also said to be an ellipse.
+
+\begin{center}
+(D2)
+\end{center}
+
+\begin{ques}
+How are these two methods of drawing an ellipse interrelated. Are they different? Or are they both the same?
+\end{ques}
+
+To answer this question, we depend on a very clever construction which leads to proving the similarity between the two popular methods of drawing ellipses.
+
+Before starting the proof, let us make some of our assumptions. The base of the cone lies on the horizontal plane. The plane, intersects the cone such that the plane comes in contact with both the areas of the cone. Following these we can start with our proof.
+\begin{center}
+    D3
+\end{center}
+
+We construct two spheres in our confguration, both of which lie inside the cone and tangent to the cone and the plane.
+There are two such possible spheres and they are called 'Dandelin' spheres. Due to the contributions of Germinal Pierre Dandelin
+\begin{center}
+    \includegraphics[scale=0.6]{Dandelin_spheres.svg.png}
+\end{center}
+
+
+
+
+
+\begin{claim}
+The point of tangency of the two spheres with the plane are indeed the two foci of the ellipse which would be formed
+\end{claim}
+\begin{proof}
+Due to the multiple tangency conditions, we must have $\overline{P_1P}=\overline{PF_1}$ and $\overline{PP_2}=\overline{PF_2}$. Since the total distance $\overline{P_1P_2}$ always remains constant, $\overline{P_1P_2}=\overline{PP_1}+\overline{PP_2}=\overline{PF_2}+\overline{PF_1}$ also remains constant, and suffices the definition of an ellipse
+\end{proof}

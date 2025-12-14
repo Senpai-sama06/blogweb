@@ -1,0 +1,79 @@
+\documentclass{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{asymptote}
+
+\title{Library of Lemmas}
+\author{Ramakrishna Sen}
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+\section{Power of a point lemma}
+\begin{definition}
+We define the power of a point $X$ which lies on the line segment $AB$ to be $AX\cdot XB$. This is equivalent to $OX^2-r^2$, where $O$ is the center of the circle.
+\end{definition}
+\begin{theorem}[Raw elementary]
+The power of a point theorem just says that if two line segments $AB$ and $CD$ intersect at point $X$, and if $AX\cdot XB=CX\cdot XD$, then $ABCD$ is concyclic.
+\end{theorem}
+\section{Haruki's Lemma}
+\section{Orders modulo a prime}
+\begin{definition}[Orders modulo a prime]
+\alert{The order of a number modulo prime} is the least positive integer $n$ such that $a^n \equiv 1\pmod{p}$
+\end{definition}
+\begin{lemma}[Result of negative residues.]
+Let $n^2\equiv -1\pmod{p}$ for some odd primes, then $p\equiv -1\pmod{4}$
+\end{lemma}
+\begin{proof}
+$n^2\equiv -1 \pmod{p}\Longrightarrow n^4\equiv 1\pmod{p}$ which means that 4 is an order modulo $p$. According to the fundamental principle of Orders, $4|p-1$.
+\end{proof}
+\newpage
+\section{The butterfly of the garden}
+\begin{lemma}[The butterfly lemma]
+For a cyclic quadrilateral $ABCD$ with circumcircle $\omega$ let the diagonals of the quadrilateral $AC$ and $BD$ meet at $M$. Let there be another chord $EF$ such that the midpoint of the chord is $M$. Then the midpoint of $XY$ is also $M$.
+\begin{center}
+    \begin{asy}
+         /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -13.66, xmax = 13.66, ymin = -6.52, ymax = 6.52;  /* image dimensions */
+pen zzttqq = rgb(0.6,0.2,0); 
+
+draw((-2.9,3.62)--(-4.76,-1.4)--(3.96,-2.58)--cycle, linewidth(1) + zzttqq); 
+ /* draw figures */
+draw((-2.9,3.62)--(-4.76,-1.4), linewidth(1)); 
+draw((3.96,-2.58)--(-2.9,3.62), linewidth(1)); 
+draw(circle((-0.1642987913646527,-0.2482080175421804), 4.7378364650868345), linewidth(1)); 
+draw((3.158353295416347,3.129228507415229)--(3.96,-2.58), linewidth(1)); 
+draw((3.158353295416347,3.129228507415229)--(-4.76,-1.4), linewidth(1)); 
+draw((4.338361270565606,1.2259516537976352)--(-4.685181098579763,1.1690843073562132), linewidth(1)); 
+ /* dots and labels */
+dot((-2.9,3.62),dotstyle); 
+label("$A$", (-3.32,3.98), NE * labelscalefactor); 
+dot((-4.76,-1.4),dotstyle); 
+label("$B$", (-5.34,-1.72), NE * labelscalefactor); 
+dot((3.96,-2.58),dotstyle); 
+label("$C$", (3.92,-3.14), NE * labelscalefactor); 
+dot((3.158353295416347,3.129228507415229),dotstyle); 
+label("$D$", (3.34,3.36), NE * labelscalefactor); 
+dot((-0.21932072726519639,1.197228645633268),linewidth(4pt) + dotstyle); 
+label("$M$", (-0.38,1.64), NE * labelscalefactor); 
+dot((-4.685181098579763,1.1690843073562132),dotstyle); 
+label("$E$", (-5.32,1.48), NE * labelscalefactor); 
+dot((4.338361270565606,1.2259516537976352),linewidth(4pt) + dotstyle); 
+label("$F$", (4.56,1.44), NE * labelscalefactor); 
+dot((-3.806055407388893,1.1746246531762152),linewidth(4pt) + dotstyle); 
+label("$X$", (-4.2,1.36), NE * labelscalefactor); 
+dot((3.426404028141226,1.22020439996725),linewidth(4pt) + dotstyle); 
+label("$Y$", (3.6,1.44), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+    \end{asy}
+\end{center}
+\end{lemma}
+
+\end{document}

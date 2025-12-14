@@ -1,0 +1,71 @@
+\documentclass{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{Group Theory}
+\author{Ramakrishna Sen, Subhadip Bannerjee}
+\date{February 2021}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+Group theory is the study of groups. Groups are sets equipped with an operation (like multiplication, addition, or composition) that satisfies certain basic properties. As the building blocks of abstract algebra, groups are so general and fundamental that they arise in nearly every branch of mathematics and the sciences.
+
+For example, The molecule $CCl_4$ has tetrahedral shape; its symmetry group has 24 elements. Chemists use symmetry groups to classify molecules and predict many of their chemical properties.
+\begin{definition}
+A group is a set $G$ together with an operation that takes two elements of $G$ and combines them to produce a third element of $G$. The operation must also satisfy certain properties.
+\end{definition}
+More formally, the group operation is a function $G\times G \rightarrow G$, which is denoted by $(x,y) \mapsto x*y$, satisfying the following properties (also known as the group axioms).
+
+A lot of times we define a group to have a binary operation and it must be closed, then here 'closed' means we can bound it in some particular set and by 'binary operation', we mean that it is a two quantity operation. A non-empty group with a binary operation is called a \alert{groupoid}.
+\section{Group axioms}
+We discuss certain group axioms here, as the global announcement, $x,y,z\in G$. $e$ is the identity element of the group $G$.
+\begin{remark}[Associativity]
+$x*(y*z)=(x*y)*z$
+\end{remark}
+\begin{remark}[Identity]
+There exists some $e$ then, $x*e=e*x=x$ (The second equality is because of associativity.)
+\end{remark}
+A semi-group is called a monoid if there exists an identity element $e\in G$.
+\begin{remark}[Existence of inverses of a group]
+For the identity group action $e$, if $x*y=e$ then we call $y$ to be the inverse of $x$.
+\end{remark}
+\begin{remark}[Closure]
+$x*y\in G$
+\end{remark}
+\section{Abelian and non-Abelian}
+An Abelian group is a commutative group, in which it does not matter in what way the group operation takes place. For example, $x*y=y*x$. It does not matter in what order the two operations take place.
+
+So basically in order for a group to be Abelian, it must be commutative. If not it is non-Abelian. The below image gives a nice conclusion to everything we did yet.
+
+\begin{center}
+    \includegraphics[scale=0.2]{Conclusion.jpg}
+\end{center}
+\section{Some exercises}
+the key to nailing the prove so and so is a group if it follows the following properties is going to be to prove the three important properties of a group. \alert{Invertibility, closure and associativity}. There are more, but this is a comfortable jouney through.
+\subsection{Residue classes}
+Residue classes or the residues modulo $n$ also form a group under addtion or multiplication modulo a number $n$. the group under modular addition is called \alert{cyclic groups of order $n$}. The identity is 0, and there also exists modular inverses. (number theoretic terms). It is also commutative, so it is also Abelian.
+\subsection{Uniqueness of identity}
+In this example we prove that the identity is unique.
+\begin{theorem}[Identify]
+The identity element of a group $(G,*)$ is unique
+\end{theorem}
+\begin{proof}
+Suppose that the identity is not unique, and hence consier $e$ and $e^*$ to be the two independent identities $\in G$, then $$e*e^*=e'$$ and also $$e'*e=e$$ this suggests that $e'=e$
+\end{proof}
+\subsection{Uniqueness of inverse}
+In this section we would see how inverses are unique. All of this results are used in number theory as well, so never hesitate to covrt your group theoretic examples into a number theoretic one.
+\begin{theorem}[Inversion]
+For a group $(G,*)$ let there exist two inverses of an element $a\in G$. Call them $b$ and $c$. Then $b=c$
+\end{theorem}
+\begin{proof}
+For some $b$ and $c$ to be the inverses of $a$, group operation of $a$ with $b,c$ should result out the identity element. That is, $$a*b=e$$ as well as, $$a*c=e$$
+
+\end{proof}
+
+
+\end{document}

@@ -1,0 +1,167 @@
+\usepackage{hyperref}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+
+\newcommand{\cis}{cis}
+\newcommand{\lcm}{lcm}
+\newcommand{\argmin}{arg min}
+\newcommand{\argmax}{arg max}
+
+%Imports colors
+
+
+
+
+%Beamer blocks in articles
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings}
+
+\RequirePackage{xcolor}
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{brightlavender}{rgb}{0.75, 0.58, 0.89}
+\definecolor{brightturquoise}{rgb}{0.03, 0.91, 0.87}
+\definecolor{neongreen}{rgb}{0.22, 0.88, 0.08}
+
+
+%Block environments
+
+\usepackage{tcolorbox}
+
+
+\newenvironment{alertbox}{\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]\sffamily}{\end{tcolorbox}}
+
+\newenvironment{statebox}[1]{\begin{tcolorbox}[colback=white,colframe=black,breakable,title=\sffamily{Remarks}]}{\end{tcolorbox}}
+
+
+
+%tikz mdframed box
+\usepackage[framemethod=TikZ]{mdframed}
+
+
+\newenvironment{notes}
+  {%
+  \begin{mdframed}[
+    linewidth=.5,
+    everyline=true,
+    %margin=8.5,
+    backgroundcolor=gray!2,
+    linecolor=red,
+    fontcolor=black,
+    roundcorner=10pt,
+    middlelinewidth=2pt,
+    splittopskip=25pt,
+    secondextra={
+      \node[
+        overlay,
+        fill=white,
+        anchor=west,
+        font=\sffamily\Large,
+        inner xsep=10pt
+      ] at ([xshift=10pt]O|-P) {Continuation};
+      },
+    middleextra={
+      \node[
+        overlay,
+        fill=white,
+        anchor=west,
+        font=\sffamily\Large,
+        inner xsep=10pt
+      ] at ([xshift=10pt]O|-P) {Continuation};
+      }
+  ]%
+  \fontsize{12}{14}\sffamily\selectfont%
+  }
+  {\end{mdframed}}
+
+
+\definecolor{midnightblue}{RGB}{25,25,112}
+\newtcolorbox[auto counter]{theorem}[2][]{%
+    colback=cyan!10,
+    colframe=midnightblue,
+    colbacktitle=midnightblue,
+    coltitle=white,
+    fonttitle=\bfseries\sffamily, 
+    title=Theorem \thetcbcounter\ : #2,
+    enhanced,breakable,
+    attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+    #1% For possible options
+}
+
+
+\newtcolorbox[auto counter]{lemma}[2][]{%
+    colback=cyan!10,
+    colframe=midnightblue,
+    colbacktitle=midnightblue,
+    coltitle=white,
+    fonttitle=\bfseries\sffamily, 
+    title=Lemma \thetcbcounter\ : #2,
+    enhanced,breakable,
+    attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+    #1% For possible options
+}
+
+
+\definecolor{orangeyellow}{RGB}{255,174,66}
+\definecolor{scarlet}{RGB}{255, 36, 0}
+\newtcolorbox[auto counter]{example}[2][]{%
+    colback=orangeyellow!10,
+    colframe=scarlet,
+    colbacktitle=scarlet,
+    coltitle=white,
+    fonttitle=\bfseries\sffamily, 
+    title=Source : #2,
+    enhanced,
+    attach boxed title to bottom right={yshift=-0.5mm, xshift=0.5cm},%
+    % For possible options
+}
+
+
+
+%box definitions over
+
+
+%Problems, conjectures and exercises.
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+%Numbered theorems
+\theoremstyle{definition}
+\newtheorem{problem}[subsection]{\sffamily{Problem}}
+\newtheorem{exercise}[subsection]{\sffamily{Exercise}}
+
+%Un-numbered theorems
+\newtheorem*{ques}{\sffamily{Question}}
+
+
+%fancyhdr setup
+\usepackage{fancyhdr} 
+\setlength{\headheight}{15.2pt} 
+\pagestyle{fancy}
+
+\providecommand{\theauthor}{\@author}
+\providecommand{\thetitle}{\@title}
+%\providecommand{\thesubsection}{\@subsection}
+\providecommand{\thepage}{\@page}
+\providecommand{\thedate}{\@date}
+%\providecommand{\thesection}{\@section}
+
+\lhead[\sffamily{\theauthor}$^\ddag$]{\sffamily{\theauthor}$^\ddag$}
+\chead[\sffamily{\thedate}]{\sffamily{\thedate}}
+\rhead[\sffamily{\thetitle}]{\sffamily{\thetitle}}
+\usepackage{lastpage}
+%\cfoot{Page \thepage\ of \pageref{LastPage}}[Page \thepage\ of \pageref{LastPage}]
+
+
+%change in the bullet structure
+
+\newcommand{\localtextbulletone}{\textcolor{black}{\raisebox{.45ex}{\rule{.8ex}{.8ex}}}}
+\renewcommand{\labelitemi}{\localtextbulletone}
+
+%Using titlesec package for title management
+\usepackage{amssymb}
+\usepackage{tipa}
+\renewcommand*{\sectionformat}{\textcolor{purple}{\S\thesection.}\enskip }
+\renewcommand*{\subsectionformat}{\textcolor{purple}{\S\thesubsection.}\enskip }\renewcommand
+*{\subsubsectionformat}{\textcolor{purple}{\S\thesubsubsection.}\enskip }

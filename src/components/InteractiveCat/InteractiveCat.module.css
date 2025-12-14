@@ -10,8 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: crosshair;
-    /* Hint that it's interactive */
+
 }
 
 .text {
