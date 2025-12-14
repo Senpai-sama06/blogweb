@@ -55,7 +55,7 @@ Given three confocal ellipses, the intersections of the common tangents of two o
 
 Here is the diagram to the theorem:
 
-![Ilya Bogdanov](/ilyabogdanov.jpg)
+![Ilya Bogdanov](/profile-website/ilyabogdanov.jpg)
 
 ### Lemma (Auxillary circle)
 In an ellipse, with foci $F_1 \text{ and }F_2$, construct a tangent line from point $P$ on the ellipse. If the tangent meets the auxillary circle at points $C$ and $D$ then:
