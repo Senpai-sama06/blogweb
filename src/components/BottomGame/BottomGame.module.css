@@ -5,8 +5,8 @@
     width: 100%;
     height: 150px;
     z-index: 990;
-    pointer-events: auto;
-    /* Allow clicks */
+    pointer-events: none;
+    /* Allow clicks to pass through */
 }
 
 .canvas {
