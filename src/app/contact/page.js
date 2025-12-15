@@ -18,9 +18,8 @@ export default function Contact() {
             </div>
 
             <div className={styles.socials}>
-                <a href="#" className={styles.socialLink}>LinkedIn</a>
-                <a href="#" className={styles.socialLink}>GitHub</a>
-                <a href="#" className={styles.socialLink}>Twitter</a>
+                <a href="https://www.linkedin.com/in/ramakrishna-sen-65aa9a289/" className={styles.socialLink} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/Senpai-sama06" className={styles.socialLink} target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
         </div>
     );
