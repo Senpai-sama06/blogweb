@@ -1,5 +1,24 @@
 import styles from './resume.module.css';
 
+const PROJECTS = [
+    {
+        title: "Real-Time Audio-Visual Zoom System",
+        status: "Ongoing",
+        tech: "Python, Neural Beamforming",
+        description: "An end-to-end real-time speech enhancement system that leverages Neural MVDR beamforming to isolate and amplify targeted sound sources. This project introduces a novel microphone-array method capable of broadside sound localization using only two microphones, achieving a significant 20dB SINR improvement and maintaining a PESQ score above 2.5 in challenging noisy environments.",
+        link: "https://github.com/Senpai-sama06",
+        image: "/profile-website/project-audio-zoom.png"
+    },
+    {
+        title: "4-Point FFT Processor",
+        status: "Sept 2025",
+        tech: "Verilog, ASIC Flow",
+        description: "A high-performance, pipelined 2-stage Radix-2 DIT FFT processor designed for hardware acceleration. By optimizing twiddle-factor multipliers, computation latency was reduced by 40%. The design was taken through a full ASIC implementation flow (RTL to GDSII) on 90nm CMOS, successfully achieving 100 MHz timing closure.",
+        link: "https://github.com/Senpai-sama06",
+        image: "/profile-website/project-fft-processor.png"
+    }
+];
+
 export default function Resume() {
     return (
         <div className={styles.container}>
@@ -31,7 +50,7 @@ export default function Resume() {
                         </a>
                     </div>
 
-                    <a href="/resume.pdf" download className={styles.downloadBtn}>
+                    <a href="resume.pdf" download className={styles.downloadBtn}>
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -92,7 +111,7 @@ export default function Resume() {
                         <div className={styles.timelineItem}>
                             <div className={styles.timelineHeader}>
                                 <div className={styles.timelineTitle}>Integrated B.Tech + M.Tech in ECE</div>
-                                <div className={styles.timelineSubtitle}>IIITDM Kurnool</div>
+                                <div className={styles.timelineSubtitle}>Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
                             </div>
                             <span className={styles.timelineDate}>Present</span>
                             <p className={styles.timelineDescription}>
@@ -109,49 +128,34 @@ export default function Resume() {
                         <span>🐯</span> Projects
                     </h2>
                     <div className={styles.projectsGrid}>
-                        {/* Project 1 */}
-                        <div className={styles.projectCard}>
-                            <div className={styles.projectHeader}>
-                                <div>
-                                    <h3 className={styles.projectTitle}>Real-Time Audio-Visual Zoom System</h3>
-                                    <span className={styles.projectStatus}>Ongoing</span>
+                        {PROJECTS.map((project, index) => (
+                            <div key={index} className={styles.projectCard}>
+                                <div className={styles.projectImageContainer}>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className={styles.projectImage}
+                                    />
+                                    <div className={styles.projectOverlay}>
+                                        <div className={styles.overlayContent}>
+                                            <span className={styles.projectStatusOverlay}>{project.status}</span>
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.overlayBtn}>
+                                                View Code
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={styles.projectTech}>Python, Neural Beamforming</div>
-                            </div>
-                            <ul className={styles.projectList}>
-                                <li>End-to-end real-time speech enhancement system using Neural MVDR beamformer.</li>
-                                <li>Novel microphone-array method for broadside sound localization with only 2 microphones.</li>
-                                <li>Achieved 20dB SINR improvement and 2.5+ PESQ score in noisy environments.</li>
-                            </ul>
-                            <a href="https://github.com/Senpai-sama06" target="_blank" rel="noopener noreferrer" className={styles.codeBtn}>
-                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
-                                View Code
-                            </a>
-                        </div>
-
-                        {/* Project 2 */}
-                        <div className={styles.projectCard}>
-                            <div className={styles.projectHeader}>
-                                <div>
-                                    <h3 className={styles.projectTitle}>4-Point FFT Processor</h3>
-                                    <span className={styles.projectStatus}>Sept 2025</span>
+                                <div className={styles.projectContent}>
+                                    <div className={styles.projectHeader}>
+                                        <h3 className={styles.projectTitle}>{project.title}</h3>
+                                        <div className={styles.projectTech}>{project.tech}</div>
+                                    </div>
+                                    <p className={styles.projectDescription}>
+                                        {project.description}
+                                    </p>
                                 </div>
-                                <div className={styles.projectTech}>Verilog, ASIC Flow</div>
                             </div>
-                            <ul className={styles.projectList}>
-                                <li>Pipelined 2-stage Radix-2 DIT FFT processor for hardware acceleration.</li>
-                                <li>Optimized twiddle-factor multipliers to lower computation latency by 40%.</li>
-                                <li>Full ASIC implementation (RTL to GDSII) on 90nm CMOS, achieving 100 MHz closure.</li>
-                            </ul>
-                            <a href="https://github.com/Senpai-sama06" target="_blank" rel="noopener noreferrer" className={styles.codeBtn}>
-                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
-                                View Code
-                            </a>
-                        </div>
+                        ))}
                     </div>
                 </section>
 
@@ -163,10 +167,19 @@ export default function Resume() {
                     <div className={styles.timeline}>
                         <div className={styles.timelineItem}>
                             <div className={styles.timelineHeader}>
-                                <div className={styles.timelineTitle}>Signal Processing and Controls Research Group Head</div>
-                                <div className={styles.timelineSubtitle}>Club ElectroniX, IIITDM Kurnool</div>
+                                <div className={styles.timelineTitle}>Vice-Chair</div>
+                                <div className={styles.timelineSubtitle}>Society of Aeronautics Engineers
+                                    <br />Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
                             </div>
                             <span className={styles.timelineDate}>Aug 2025 – Present</span>
+                        </div>
+                        <div className={styles.timelineItem}>
+                            <div className={styles.timelineHeader}>
+                                <div className={styles.timelineTitle}>Signal Processing and Controls Research Group Head</div>
+                                <div className={styles.timelineSubtitle}>Society of Electronics
+                                    <br />Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
+                            </div>
+                            <span className={styles.timelineDate}>Aug 2024 – Aug 2025</span>
                         </div>
                     </div>
                 </section>
