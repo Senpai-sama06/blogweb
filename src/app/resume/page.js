@@ -7,7 +7,7 @@ const PROJECTS = [
         tech: "Python, Neural Beamforming",
         description: "An end-to-end real-time speech enhancement system that leverages Neural MVDR beamforming to isolate and amplify targeted sound sources. This project introduces a novel microphone-array method capable of broadside sound localization using only two microphones, achieving a significant 20dB SINR improvement and maintaining a PESQ score above 2.5 in challenging noisy environments.",
         link: "https://github.com/Senpai-sama06",
-        image: "/profile-website/project-audio-zoom.png"
+        image: "/blogweb/project-audio-zoom.png"
     },
     {
         title: "4-Point FFT Processor",
@@ -15,7 +15,7 @@ const PROJECTS = [
         tech: "Verilog, ASIC Flow",
         description: "A high-performance, pipelined 2-stage Radix-2 DIT FFT processor designed for hardware acceleration. By optimizing twiddle-factor multipliers, computation latency was reduced by 40%. The design was taken through a full ASIC implementation flow (RTL to GDSII) on 90nm CMOS, successfully achieving 100 MHz timing closure.",
         link: "https://github.com/Senpai-sama06",
-        image: "/profile-website/project-fft-processor.png"
+        image: "/blogweb/project-fft-processor.png"
     }
 ];
 
@@ -50,7 +50,7 @@ export default function Resume() {
                         </a>
                     </div>
 
-                    <a href="resume.pdf" download className={styles.downloadBtn}>
+                    <a href="/blogweb/resume.pdf" download className={styles.downloadBtn}>
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
