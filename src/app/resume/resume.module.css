@@ -138,70 +138,149 @@
     color: var(--lavender);
 }
 
+/* --- Timeline & Cards --- */
 .timeline {
     position: relative;
-    border-left: 2px solid var(--surface1);
     padding-left: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--surface1);
+    border-radius: 2px;
 }
 
 .timelineItem {
     position: relative;
+    padding-left: 2rem;
 }
 
-/* Timeline Dot */
-.timelineItem::before {
+/* Dot on the timeline */
+.timelineItem::after {
     content: '';
     position: absolute;
     left: -2.6rem;
-    top: 5px;
-    width: 20px;
-    height: 20px;
+    /* Adjust based on parent padding/margin to align with line. 
+       Actually, since .timeline has padding-left: 2rem, 
+       and line is at left: 0 of .timeline, 
+       we need to position the dot relative to the line.
+       Wait, let's keep it simple. 
+       
+       Let's place the dot on the line (which is at .timeline left:0).
+       The .timelineItem is inside .timeline.
+    */
+    left: -2.6rem;
+    /* This was relying on specific dom structure */
+    top: 24px;
+    width: 16px;
+    height: 16px;
     background: var(--base);
     border: 3px solid var(--mauve);
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--base);
+}
+
+/* Fix dot position: 
+   .timeline has padding-left: 2rem. The line is at 0.
+   .timelineItem is inside. So relative to .timelineItem, the line is at -2rem.
+   So let's put the dot at -2rem (minus half width).
+*/
+.timelineItem::after {
+    left: calc(-2rem - 9px);
+    /* -2rem (line) - 8px (half width) - approx alignment */
+    /* Let's try to be precise */
+    left: -2.6rem;
+    /* Original was -2.6rem with padding-left 2rem on container */
+}
+
+/* New Card Style */
+.timelineCard {
+    background: var(--surface0);
+    border: 1px solid var(--surface1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timelineCard:hover {
+    transform: translateX(5px);
+    border-color: var(--mauve);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow pointing to the line */
+.timelineCard::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 26px;
+    width: 16px;
+    height: 16px;
+    background: var(--surface0);
+    border-left: 1px solid var(--surface1);
+    border-bottom: 1px solid var(--surface1);
+    transform: rotate(45deg);
+    transition: border-color 0.3s ease;
+}
+
+.timelineCard:hover::before {
+    border-color: var(--mauve);
 }
 
 .timelineHeader {
-    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .timelineTitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--text);
 }
 
 .timelineSubtitle {
-    color: var(--pink);
-    font-weight: 500;
-    font-size: 1rem;
+    color: var(--mauve);
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .timelineDate {
-    display: block;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--overlay1);
-    margin-bottom: 1rem;
-    margin-top: 0.2rem;
+    font-weight: 500;
+    background: var(--base);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid var(--surface1);
 }
 
+/* Description Text (Replacing List) */
 .timelineDescription {
     color: var(--subtext0);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
-.timelineList {
-    margin-top: 0.8rem;
-    list-style-position: inside;
-    color: var(--subtext0);
+.timelineDescription p {
+    margin-bottom: 0.8rem;
 }
 
-.timelineList li {
-    margin-bottom: 0.5rem;
+.timelineDescription p:last-child {
+    margin-bottom: 0;
 }
 
 /* --- Projects Grid --- */

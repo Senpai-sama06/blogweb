@@ -88,16 +88,20 @@ export default function Resume() {
                     </h2>
                     <div className={styles.timeline}>
                         <div className={styles.timelineItem}>
-                            <div className={styles.timelineHeader}>
-                                <div className={styles.timelineTitle}>Signal Processing Intern</div>
-                                <div className={styles.timelineSubtitle}>GalaxEye Space | Bangalore, India</div>
+                            <div className={styles.timelineCard}>
+                                <div className={styles.timelineHeader}>
+                                    <div>
+                                        <div className={styles.timelineTitle}>Signal Processing Intern</div>
+                                        <div className={styles.timelineSubtitle}>GalaxEye Space | Bangalore, India</div>
+                                    </div>
+                                    <span className={styles.timelineDate}>July 2024 – September 2024</span>
+                                </div>
+                                <div className={styles.timelineDescription}>
+                                    <p>Developed and implemented a SAR autofocus algorithm that improved overall image clarity by 50%, boosting PSLR from 9dB to 14dB.</p>
+                                    <p>Accelerated SAR backprojection pipeline by leveraging CUDA parallelization, resulting in 20% faster processing.</p>
+                                    <p>Validated algorithm performance on 100+ droneSAR datasets under varying noise conditions and platform motion.</p>
+                                </div>
                             </div>
-                            <span className={styles.timelineDate}>July 2024 – September 2024</span>
-                            <ul className={styles.timelineList}>
-                                <li>Developed and implemented a SAR autofocus algorithm that improved overall image clarity by 50%, boosting PSLR from 9dB to 14dB.</li>
-                                <li>Accelerated SAR backprojection pipeline by leveraging CUDA parallelization, resulting in 20% faster processing.</li>
-                                <li>Validated algorithm performance on 100+ droneSAR datasets under varying noise conditions and platform motion.</li>
-                            </ul>
                         </div>
                     </div>
                 </section>
@@ -109,15 +113,21 @@ export default function Resume() {
                     </h2>
                     <div className={styles.timeline}>
                         <div className={styles.timelineItem}>
-                            <div className={styles.timelineHeader}>
-                                <div className={styles.timelineTitle}>Integrated B.Tech + M.Tech in ECE</div>
-                                <div className={styles.timelineSubtitle}>Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
+                            <div className={styles.timelineCard}>
+                                <div className={styles.timelineHeader}>
+                                    <div>
+                                        <div className={styles.timelineTitle}>Integrated B.Tech + M.Tech in ECE</div>
+                                        <div className={styles.timelineSubtitle}>Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
+                                    </div>
+                                    <span className={styles.timelineDate}>Present</span>
+                                </div>
+                                <div className={styles.timelineDescription}>
+                                    <p>
+                                        <strong>CGPA:</strong> 8.0/10<br />
+                                        <strong>Relevant Coursework:</strong> Digital Signal Processing, Statistical Signal Analysis, Control Systems, Wireless Communications, Machine Learning, Computer Architecture.
+                                    </p>
+                                </div>
                             </div>
-                            <span className={styles.timelineDate}>Present</span>
-                            <p className={styles.timelineDescription}>
-                                <strong>CGPA:</strong> 8.0/10<br />
-                                <strong>Relevant Coursework:</strong> Digital Signal Processing, Statistical Signal Analysis, Control Systems, Wireless Communications, Machine Learning, Computer Architecture.
-                            </p>
                         </div>
                     </div>
                 </section>
@@ -166,20 +176,26 @@ export default function Resume() {
                     </h2>
                     <div className={styles.timeline}>
                         <div className={styles.timelineItem}>
-                            <div className={styles.timelineHeader}>
-                                <div className={styles.timelineTitle}>Vice-Chair</div>
-                                <div className={styles.timelineSubtitle}>Society of Aeronautics Engineers
-                                    <br />Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
+                            <div className={styles.timelineCard}>
+                                <div className={styles.timelineHeader}>
+                                    <div>
+                                        <div className={styles.timelineTitle}>Vice-Chair</div>
+                                        <div className={styles.timelineSubtitle}>Society of Aeronautics Engineers<br />IIITDM Kurnool</div>
+                                    </div>
+                                    <span className={styles.timelineDate}>Aug 2025 – Present</span>
+                                </div>
                             </div>
-                            <span className={styles.timelineDate}>Aug 2025 – Present</span>
                         </div>
                         <div className={styles.timelineItem}>
-                            <div className={styles.timelineHeader}>
-                                <div className={styles.timelineTitle}>Signal Processing and Controls Research Group Head</div>
-                                <div className={styles.timelineSubtitle}>Society of Electronics
-                                    <br />Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
+                            <div className={styles.timelineCard}>
+                                <div className={styles.timelineHeader}>
+                                    <div>
+                                        <div className={styles.timelineTitle}>Research Group Head</div>
+                                        <div className={styles.timelineSubtitle}>Signal Processing & Controls | Society of Electronics<br />IIITDM Kurnool</div>
+                                    </div>
+                                    <span className={styles.timelineDate}>Aug 2024 – Aug 2025</span>
+                                </div>
                             </div>
-                            <span className={styles.timelineDate}>Aug 2024 – Aug 2025</span>
                         </div>
                     </div>
                 </section>
