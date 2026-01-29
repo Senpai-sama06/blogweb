@@ -1,7 +1,7 @@
 import './globals.css';
+import 'katex/dist/katex.min.css';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import SleepingCat from '@/components/SleepingCat/SleepingCat';
 import BottomGame from '@/components/BottomGame/BottomGame';
 
 export const metadata = {
@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
             <body>
                 <Navbar />
                 <main style={{ minHeight: 'calc(100vh - 200px)' }}>{children}</main>
-                <SleepingCat />
                 <BottomGame />
                 <Footer />
             </body>

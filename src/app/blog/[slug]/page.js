@@ -2,7 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
-import 'katex/dist/katex.min.css'; // Import KaTeX styles
 import 'highlight.js/styles/atom-one-dark.css'; // Import Highlight.js theme
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import styles from './post.module.css';
@@ -14,7 +13,7 @@ export async function generateStaticParams() {
     }));
 }
 
-import Comments from '@/components/Comments/Comments';
+import AudioComparison from '@/components/AudioComparison/AudioComparison';
 
 export default function Post({ params }) {
     const postData = getPostData(params.slug);
@@ -41,12 +40,27 @@ export default function Post({ params }) {
                     <ReactMarkdown
                         remarkPlugins={[remarkMath]}
                         rehypePlugins={[rehypeKatex, rehypeHighlight]}
+                        components={{
+                            code({ node, inline, className, children, ...props }) {
+                                const match = /language-([\w-]+)/.exec(className || '');
+                                const language = match ? match[1] : null;
+
+                                if (!inline && language === 'audio-comparison') {
+                                    try {
+                                        const data = JSON.parse(String(children).replace(/\n$/, ''));
+                                        return <AudioComparison {...data} />;
+                                    } catch (e) {
+                                        return <pre className={className}><code>{children}</code></pre>;
+                                    }
+                                }
+
+                                return <code className={className} {...props}>{children}</code>;
+                            }
+                        }}
                     >
                         {postData.content}
                     </ReactMarkdown>
                 </div>
-
-                <Comments />
             </article>
         </div>
     );

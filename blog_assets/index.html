@@ -1,0 +1,31 @@
+
+    <html>
+    <head>
+        <style>
+            body { font-family: sans-serif; max-width: 800px; margin: 2em auto; color: #333; }
+            .content-block { border: 1px solid #ddd; padding: 20px; margin-bottom: 30px; border-radius: 8px; }
+            img { max-width: 100%; height: auto; margin-top: 15px; border: 1px solid #eee; }
+            h2 { margin-top: 0; }
+            audio { width: 100%; margin-top: 10px; }
+        </style>
+    </head>
+    <body>
+        <h1>DSP Demo: Chord vs. Arpeggio</h1>
+        <p>This page demonstrates the Time and Frequency domain differences between playing notes simultaneously (Chord) and sequentially (Arpeggio).</p>
+    
+        <div class="content-block">
+            <h2>Simultaneous (Chord)</h2>
+            <p><strong>Listen:</strong></p>
+            <audio controls src="chord.wav"></audio>
+            <p><strong>Analysis:</strong></p>
+            <img src="chord_fft.png" alt="FFT Plot for Simultaneous (Chord)">
+        </div>
+        
+        <div class="content-block">
+            <h2>Sequential (Arpeggio)</h2>
+            <p><strong>Listen:</strong></p>
+            <audio controls src="arpeggio.wav"></audio>
+            <p><strong>Analysis:</strong></p>
+            <img src="arpeggio_fft.png" alt="FFT Plot for Sequential (Arpeggio)">
+        </div>
+        </body></html>

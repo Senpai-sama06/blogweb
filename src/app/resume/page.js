@@ -97,9 +97,9 @@ export default function Resume() {
                                     <span className={styles.timelineDate}>July 2024 – September 2024</span>
                                 </div>
                                 <div className={styles.timelineDescription}>
-                                    <p>Developed and implemented a SAR autofocus algorithm that improved overall image clarity by 50%, boosting PSLR from 9dB to 14dB.</p>
-                                    <p>Accelerated SAR backprojection pipeline by leveraging CUDA parallelization, resulting in 20% faster processing.</p>
-                                    <p>Validated algorithm performance on 100+ droneSAR datasets under varying noise conditions and platform motion.</p>
+                                    <p>
+                                        During my time at GalaxEye Space, I developed and implemented a SAR autofocus algorithm that improved overall image clarity by 50%, boosting the PSLR from 9dB to 14dB. Additionally, I accelerated the SAR backprojection pipeline by leveraging CUDA parallelization, which resulted in 20% faster processing. These algorithms were rigorously validated on over 100 droneSAR datasets under varying noise conditions and platform motion.
+                                    </p>
                                 </div>
                             </div>
                         </div>

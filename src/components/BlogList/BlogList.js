@@ -23,8 +23,8 @@ export default function BlogList({ posts }) {
     // Filter posts
     const filteredPosts = useMemo(() => {
         return posts.filter(post => {
-            const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesSearch = (post.title?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+                (post.excerpt?.toLowerCase() || '').includes(searchQuery.toLowerCase());
             const matchesTag = selectedTag ? (post.tags && post.tags.includes(selectedTag)) : true;
             return matchesSearch && matchesTag;
         });
