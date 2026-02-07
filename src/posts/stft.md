@@ -1,12 +1,13 @@
 ---
-title: "Understanding music computationally"
+title: "Ok computer - the radiohead album (STFT)"
 date: "Jan 29, 2026"
 tags: ["Math", "Music", "Signal Processing", "Fourier Transform", "DSP"]
-excerpt: "Exploring synthetic properties of ellipses, optical properties, and isogonal conjugates with visual proofs."
+excerpt: "existence of STFT? Taking music as an example."
 ---
 
+tldr; We don't discuss the album here sorry :<
 
-Everyone loves to listen to music, but they hate their free spotify accounts with all their hearts. I am one of them. This is something which bugged me for a long time, how the fuck can there be a measure of quality when it comes to audio? Like sure, one might argue that some might be too noisy or unintelligable, but the answer to that is simply an encoding issue. But when we talk about encoding, we are ultimately talking about the fact that we are trying to represent a continuous signal in a discrete format, in other words, trying to make a computer understand music. And unlike a distasteful man, music simply does not have quantifiable dimensions for us to define them in computer terms. The answer to that lies in another of Fourier's bangers, the Short-Time Fourier Transform!  
+I rarely know people who don't listen to music. This today has become one of the impossibilities of life. You NEED music while vibecoding! I am one of them. But the quality of music is something to worry about. Like sure, one might argue that some green coloured, circular logo app who sponsored FC Barca last season gives subpar audio quality when compared to that half-eaten apply. But ultimately we  refer to the audio being too noisy or unintelligable. The answer to why that happens is simply an encoding issue. But when we talk about encoding, we are ultimately talking about the fact that we are trying to represent a continuous signal in a discrete format, in other words, trying to make a computer understand music. And unlike a distasteful man, music simply does not have quantifiable dimensions for us to define them in computer terms. The answer to that lies in another of Fourier's bangers, the Short-Time Fourier Transform!  
 
 But before we get there, we have to talk about why the standard Fast Fourier Transform (FFT) is kinda useless here. It simply isn't smart enough to understand music. It is instructed to blindly chase the frequencies, but it cannot tell you WHEN those frequencies did occur.
 
@@ -37,6 +38,8 @@ $$
 
 This inequality tells us that you cannot arbitrarily minimize both spreads.
 
+
+:::hide Derrivation
 We can derive the intuition for this using the Time Scaling Property of the Fourier Transform. This is often more satisfying than a brute-force proof because it shows why the mechanism works.Let’s define a signal $x(t)$ and its Fourier Transform $ X(f) $.
 $$
 x(t) \stackrel{\text{FT}}{\longleftrightarrow} X(f)
@@ -62,8 +65,27 @@ $$
 Y(f) = \frac{1}{a} X\left(\frac{f}{a}\right)
 $$
 Look at what happened to the frequency input: $X(\frac{f}{a})$.In Time: We multiplied $t$ by $a$. If $ a = 2 $, the event happens twice as fast. The signal is compressed by half.In Frequency: We divided $f$ by $a$. To get the same value $ X(k) $, we now need a frequency of $2k$. The frequency spectrum has expanded by a factor of 2.
+:::
+
+So, we know we can't have it all. But how do we actually compute this compromise? The mathematical trick behind the STFT is the Window Function, denoted as $w(t)$. The idea here is that it isolates a small chunk of the signal and suppresses everything else to zero. You find the FFT of just this part of the signal. This window is then moved across the total signal and repeated.
+
+$$
+X(\tau, \omega) = \int_{-\infty}^{\infty} \underbrace{x(t) \cdot w(t - \tau)}_{\text{Windowed segment becomes the new signal}} e^{-j \omega t} dt 
+$$
+
+Unlike the standard FFT which only gives us $X(\omega)$, the STFT gives us a 2D function $X(\tau, \omega)$. This is the map we were looking for! When we plot the magnitude of this function squared ($|X(\tau, \omega)|^2$), we get a Spectrogram.
 
 
+```audio-comparison
+{
+  "title1": "C-Major Arpeggio (Sequential)",
+  "src1": "/blogweb/blog-assets/stft/arpeggio.wav",
+  "img1": "/blogweb/output_assets/arpeggio_spectrogram.png",
+  "title2": "C-Major Chord (Simultaneous)",
+  "src2": "/blogweb/blog-assets/stft/chord.wav",
+  "img2": "/blogweb/output_assets/chord_spectrogram.png"
+}
+```
 
 
-=== This is still being written btw, don't judge me :< ===
+Notice how this (kind of) captures the essence of when the notes were played, along with what giving you the detail about which frequency had how much power. Pretty neat right?

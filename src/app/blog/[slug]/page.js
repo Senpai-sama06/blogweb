@@ -4,6 +4,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/atom-one-dark.css'; // Import Highlight.js theme
 import { getPostData, getSortedPostsData } from '@/lib/posts';
+import remarkHiddenContent from '@/lib/remark-hidden-content'; // Import the new plugin
 import styles from './post.module.css';
 
 export async function generateStaticParams() {
@@ -14,6 +15,7 @@ export async function generateStaticParams() {
 }
 
 import AudioComparison from '@/components/AudioComparison/AudioComparison';
+import HiddenContent from '@/components/HiddenContent'; // Import the React component
 
 export default function Post({ params }) {
     const postData = getPostData(params.slug);
@@ -38,9 +40,10 @@ export default function Post({ params }) {
                 </header>
                 <div className={styles.content}>
                     <ReactMarkdown
-                        remarkPlugins={[remarkMath]}
+                        remarkPlugins={[remarkMath, remarkHiddenContent]}
                         rehypePlugins={[rehypeKatex, rehypeHighlight]}
                         components={{
+                            'hidden-content': HiddenContent, // Map lowercase tag to component
                             code({ node, inline, className, children, ...props }) {
                                 const match = /language-([\w-]+)/.exec(className || '');
                                 const language = match ? match[1] : null;
