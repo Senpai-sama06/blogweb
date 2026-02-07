@@ -38,7 +38,7 @@
     padding: 1rem;
     background: var(--surface0);
     border-top: 1px solid var(--surface2);
-    animation: fadeIn 0.3s ease-im;
+    animation: fadeIn 0.3s ease-in;
 }
 
 @keyframes fadeIn {
