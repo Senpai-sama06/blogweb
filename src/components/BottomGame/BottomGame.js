@@ -18,9 +18,9 @@ export default function BottomGame() {
         // Entities
         let player = {
             x: 100, // Fixed X position
-            y: 0,
-            width: 30,
-            height: 30,
+            y: 10,
+            width: 50,
+            height: 50,
             dy: 0,
             jumpPower: -12,
             gravity: 0.6,
@@ -35,36 +35,41 @@ export default function BottomGame() {
             // Smaller height on mobile
             const isMobile = window.innerWidth < 768;
             canvas.height = isMobile ? 100 : 150;
-            player.y = canvas.height - 30 - 10; // Ground level
+            player.y = canvas.height - player.height - 10; // Ground level
         };
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
+        // Load Cat Images
+        const imgJump = new Image();
+        imgJump.src = '/blogweb/openmouthcat.png';
+        const imgGround = new Image();
+        imgGround.src = '/blogweb/closemouthcaat.png';
+
         // Drawing Functions
-        const drawCat = (x, y, width, height, color) => {
-            ctx.fillStyle = color;
-            // Body
-            ctx.beginPath();
-            ctx.roundRect(x, y, width, height, 5);
-            ctx.fill();
-            // Ears
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x + 10, y - 10);
-            ctx.lineTo(x + 20, y);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.moveTo(x + width, y);
-            ctx.lineTo(x + width - 10, y - 10);
-            ctx.lineTo(x + width - 20, y);
-            ctx.fill();
-            // Tail (simple line)
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(x, y + height - 5);
-            ctx.quadraticCurveTo(x - 15, y + height - 20, x - 5, y + height - 25);
-            ctx.stroke();
+        const drawCat = (x, y, width, height, isGrounded) => {
+            const img = isGrounded ? imgGround : imgJump;
+            
+            if (img.complete && img.naturalWidth !== 0) {
+                if (!isGrounded) {
+                    // Add smooth rotation based on vertical velocity for a smoother transition feel
+                    ctx.save();
+                    ctx.translate(x + width / 2, y + height / 2);
+                    const angle = Math.min(Math.max(player.dy * 0.04, -0.3), 0.3);
+                    ctx.rotate(angle);
+                    // Adjust position to draw from center
+                    ctx.drawImage(img, -width / 2, -height / 2, width, height);
+                    ctx.restore();
+                } else {
+                    ctx.drawImage(img, x, y, width, height);
+                }
+            } else {
+                // Fallback dummy square while images load
+                ctx.fillStyle = player.color;
+                ctx.beginPath();
+                ctx.roundRect(x, y, width, height, 5);
+                ctx.fill();
+            }
         };
 
         const drawTree = (x, y, width, height) => {
@@ -147,8 +152,8 @@ export default function BottomGame() {
             player.dy += player.gravity;
             player.y += player.dy;
 
-            if (player.y > canvas.height - 30 - 10) {
-                player.y = canvas.height - 30 - 10;
+            if (player.y > canvas.height - player.height - 10) {
+                player.y = canvas.height - player.height - 10;
                 player.dy = 0;
                 player.grounded = true;
             } else {
@@ -164,9 +169,6 @@ export default function BottomGame() {
                     player.grounded = false;
                 }
             }
-
-            // Draw Player
-            drawCat(player.x, player.y, player.width, player.height, player.color);
 
             // Obstacles Spawning
             if (frame % Math.floor(Math.random() * 50 + 100) === 0) {
@@ -195,6 +197,9 @@ export default function BottomGame() {
                 obs.x -= gameSpeed;
                 drawObstacle(obs.x, obs.y, obs.width, obs.height, obs.type);
             });
+
+            // Draw Player on top of obstacles
+            drawCat(player.x, player.y, player.width, player.height, player.grounded);
 
             // Remove off-screen
             obstacles = obstacles.filter(obs => obs.x > -50);

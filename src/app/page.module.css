@@ -8,6 +8,43 @@
     justify-content: center;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+}
+
+/* Ambient Gradients to make the design more dynamic */
+.ambientGradient1 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(203, 166, 247, 0.12) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(60px);
+    animation: float 10s ease-in-out infinite;
+}
+
+.ambientGradient2 {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(137, 180, 250, 0.12) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(60px);
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
 }
 
 .glassCard {
@@ -22,7 +59,7 @@
     padding: 4rem;
     max-width: 900px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     position: relative;
     overflow: hidden;
     animation: fadeInScale 0.8s ease-out;
@@ -57,16 +94,56 @@
 .title {
     font-size: 4.5rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
-.highlight {
-    color: var(--mauve);
-    position: relative;
+.nameGradient {
+    background: linear-gradient(135deg, var(--mauve) 0%, var(--sapphire) 50%, var(--teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     display: inline-block;
+}
+
+.dictionaryEntry {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.phonetic {
+    font-family: var(--font-sans);
+    color: var(--overlay1);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.pos {
+    font-style: italic;
+    color: var(--mauve);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.dot {
+    color: var(--surface2);
+    font-size: 1rem;
+}
+
+.hindiName {
+    font-size: 1.25rem;
+    color: var(--subtext0);
+    font-weight: 500;
+    letter-spacing: 0.05em;
 }
 
 .subtitle {
@@ -78,23 +155,30 @@
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
 }
 
-.description {
-    font-size: 1.2rem;
+.detailsPlaceholder {
+    background: rgba(49, 50, 68, 0.3);
+    border: 1px dashed rgba(205, 214, 244, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    max-width: 800px;
+    text-align: left;
+    color: var(--subtext1);
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 3.5rem;
-    color: var(--text);
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+.detailsPlaceholder:hover {
+    border-color: var(--mauve);
+    background: rgba(69, 71, 90, 0.4);
 }
 
 .cta {
     display: flex;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start;
     animation: fadeInUp 0.8s ease-out 0.8s backwards;
 }
 
