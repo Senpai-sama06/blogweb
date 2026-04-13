@@ -1,0 +1,22 @@
+.backBtn {
+    background: transparent;
+    border: none;
+    color: var(--subtext0);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    margin-right: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.backBtn:hover {
+    color: var(--mauve);
+    background: rgba(203, 166, 247, 0.1);
+    transform: translateX(-2px);
+}

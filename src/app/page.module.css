@@ -155,24 +155,26 @@
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
 }
 
-.detailsPlaceholder {
-    background: rgba(49, 50, 68, 0.3);
-    border: 1px dashed rgba(205, 214, 244, 0.2);
-    border-radius: 16px;
-    padding: 2rem;
-    margin: 2.5rem 0;
-    max-width: 800px;
+.introContent {
+    background: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Solid clean border, not dashed */
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    max-width: 850px;
     text-align: left;
-    color: var(--subtext1);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    transition: all 0.3s ease;
+    color: var(--text); /* Brighter text than subtext1 */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
     animation: fadeInUp 0.8s ease-out 0.6s backwards;
 }
 
-.detailsPlaceholder:hover {
-    border-color: var(--mauve);
-    background: rgba(69, 71, 90, 0.4);
+.introContent:hover {
+    border-color: rgba(203, 166, 247, 0.3); /* Mauve subtle highlight */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
 .cta {

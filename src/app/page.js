@@ -20,15 +20,9 @@ export default function Home() {
                         <span className={styles.dot}>•</span>
                         <span className={styles.hindiName}>रामाकृष्णा</span>
                     </div>
-                    {/* <p className={styles.subtitle}>
-                        <span className={styles.phonetic}>[rah-mah-krish-nah]</span>
-                        <span className={styles.dot}>•</span>
-                        <span className={styles.pos}>noun</span>
-                        <span className={styles.dot}>•</span>
-                        <span className={styles.hindiName}>रामाकृष्णा</span>
-                    </p> */}
 
-                    <div className={styles.detailsPlaceholder}>
+
+                    <div className={styles.introContent}>
                         <p> This is the homepage of Ramakrishna Sen. I am currently a bachelors and masters student at <a href="https://iiitk.ac.in/">IIITDM Kurnool</a>, doing stuff related to electronics and computing. You may like to take a look at <a href="/resume">my resume</a> and <a href="/research">my research</a>. 
                         <br></br><br></br>    
                         Outside of academics, I love to procrastinate and <a href="https://youtu.be/-YJSDJGyIaU?si=KUN2T1ZcnZxK3myK">think about simple things</a> . I suck at math and chess relatively lesser than the other things I do. See my <a href="/now">now page</a> for what I’ve been thinking about recently and my most recent work experience. 
@@ -36,14 +30,7 @@ export default function Home() {
                         You can also find me on GitHub or Instagram. You may also waste your time by reading my <a href="/blog">less serious blog</a>. </p>
                     </div>
 
-                    {/* <div className={styles.cta}>
-                        <Link href="/blog" className={styles.primaryBtn}>
-                            Read My Blog
-                        </Link>
-                        <Link href="/resume" className={styles.secondaryBtn}>
-                            View Resume
-                        </Link>
-                    </div> */}
+
                 </section>
             </div>
         </div>
