@@ -1,11 +1,11 @@
 ---
-title: "Ok computer - the radiohead album (STFT)"
+title: "Do computers \"listen\" to music? "
 date: "Jan 29, 2026"
 tags: ["Math", "Music", "Signal Processing", "Fourier Transform", "DSP"]
 excerpt: "existence of STFT? Taking music as an example."
 ---
 
-tldr; We don't discuss the album here sorry :<
+tldr; they do it through their vision. 
 
 I rarely know people who don't listen to music. This today has become one of the impossibilities of life. You NEED music while vibecoding! I am one of them. But the quality of music is something to worry about. Like sure, one might argue that some green coloured, circular logo app who sponsored FC Barca last season gives subpar audio quality when compared to that half-eaten apple. But ultimately we  refer to the audio being too noisy or unintelligable. The answer to why that happens is simply an encoding issue. But when we talk about encoding, we are ultimately talking about the fact that we are trying to represent a continuous signal in a discrete format, in other words, trying to make a computer understand music. And unlike a distasteful man, music simply does not have quantifiable dimensions for us to define them in computer terms. The answer to that lies in another of Fourier's bangers, the Short-Time Fourier Transform!  
 

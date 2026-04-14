@@ -37,9 +37,11 @@
 .catWrapper {
     position: absolute;
     bottom: 0;
-    width: 60px;
-    /* Base size, effectively scale */
-    height: auto;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     will-change: transform, left;
     pointer-events: none;
     z-index: 5;
@@ -100,7 +102,7 @@
     color: var(--pink);
     font-size: 1.2rem;
     pointer-events: none;
-    animation: fadeUp 0.8s ease-out forwards;
+    animation: fadeUp 0.4s ease-out forwards;
     z-index: 20;
 }
 

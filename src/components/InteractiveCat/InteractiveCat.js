@@ -13,14 +13,13 @@ export default function InteractiveCat() {
     const [isMoving, setIsMoving] = useState(false);
     const [bonks, setBonks] = useState([]);
 
+    const [isHitting, setIsHitting] = useState(false);
+    const [hitToggle, setHitToggle] = useState(false);
+    const isHittingRef = useRef(false);
+
     // Mouse State
     const mouseRef = useRef({ x: 0, y: 0, inside: false });
 
-    // Eye Tracking Logic
-    const [leftEyePos, setLeftEyePos] = useState({ x: 0, y: 0 });
-    const [rightEyePos, setRightEyePos] = useState({ x: 0, y: 0 });
-
-    // Better Tracking: Update eyes in the animation loop to stay in sync
     // We need global mouse position for "Watching" mode
     const globalMouseRef = useRef({ x: 0, y: 0 });
 
@@ -58,6 +57,19 @@ export default function InteractiveCat() {
             container.removeEventListener('mouseleave', handleMouseLeave);
         };
     }, []);
+
+    // Toggle hitting animation
+    useEffect(() => {
+        let interval;
+        if (isHitting) {
+            interval = setInterval(() => {
+                setHitToggle(prev => !prev);
+            }, 100);
+        } else {
+            setHitToggle(false);
+        }
+        return () => clearInterval(interval);
+    }, [isHitting]);
 
     // Animation Loop
     useEffect(() => {
@@ -99,43 +111,33 @@ export default function InteractiveCat() {
                 // If close enough AND mouse Y is low enough (near cat level)
                 // Cat is roughly bottom 80px.
                 const catYThreshold = container.clientHeight - 80;
+                let currentlyHitting = false;
+                
                 if (Math.abs(diff) < 5 && mouseRef.current.y > catYThreshold && mouseRef.current.inside) {
+                    currentlyHitting = true;
                     // Add Bonk
                     addBonk(mouseRef.current.x, mouseRef.current.y);
+                }
+                
+                if (currentlyHitting !== isHittingRef.current) {
+                    isHittingRef.current = currentlyHitting;
+                    setIsHitting(currentlyHitting);
                 }
 
             } else {
                 // Idle / Watching mode
                 // TODO: Implement wandering? For now, just stand still and watch.
                 setIsMoving(false);
+                
+                if (isHittingRef.current !== false) {
+                    isHittingRef.current = false;
+                    setIsHitting(false);
+                }
             }
 
             setCatX(currentX);
 
-            // --- EYE TRACKING ---
-            if (catRef.current) {
-                const catRect = catRef.current.getBoundingClientRect();
-                // Head centers (relative to catWrapper, then converted to global)
-                // The head is centered at (50, 35) in the SVG's 100x100 viewBox.
-                // catRect gives the wrapper's position.
-                // The catWrapper is 60px wide.
-                // So, head center is at catRect.left + (catRect.width * 0.5) for X
-                // and catRect.top + (catRect.height * 0.35) for Y (approx, based on SVG design)
-                const headX = catRect.left + (catRect.width * 0.5);
-                const headY = catRect.top + (catRect.height * 0.35);
 
-                const dx = globalMouseRef.current.x - headX;
-                const dy = globalMouseRef.current.y - headY;
-                const angle = Math.atan2(dy, dx);
-
-                // Limit pupil movement radius
-                const radius = 3.5;
-                const pupilX = Math.cos(angle) * radius;
-                const pupilY = Math.sin(angle) * radius;
-
-                setLeftEyePos({ x: pupilX, y: pupilY });
-                setRightEyePos({ x: pupilX, y: pupilY });
-            }
 
             animationFrameId = requestAnimationFrame(loop);
         };
@@ -182,55 +184,19 @@ export default function InteractiveCat() {
                 ref={catRef}
                 data-moving={isMoving}
                 style={{
-                    left: `calc(${catX}% - 30px)`, // Center the 60px cat
-                    transform: `scaleX(${facingRight ? 1 : -1})`
+                    left: `calc(${catX}% - 60px)`, // Center the 120px cat
+                    transform: `scaleX(${facingRight ? -1 : 1})`
                 }}
             >
-                {/* Minimal Realistic Cat SVG */}
-                {/* 
-                   Design:
-                   - Upright sitting/standing posture 
-                   - Clean geometric shapes for legs implies "Realism" in anatomy 
-                */}
-                <svg viewBox="0 0 100 100" width="100%" height="100%">
-                    {/* Tail */}
-                    <path className={styles.tail} d="M 15 85 Q -10 50 15 20" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" color="var(--text)" />
-
-                    {/* Back Legs */}
-                    <path d="M 20 90 L 20 75" stroke="currentColor" strokeWidth="5" strokeLinecap="round" color="var(--overlay2)" className={styles.legs} />
-                    <path d="M 80 90 L 80 75" stroke="currentColor" strokeWidth="5" strokeLinecap="round" color="var(--overlay2)" className={styles.legs} />
-
-                    {/* Body */}
-                    <rect x="20" y="45" width="60" height="35" rx="15" fill="var(--text)" className={styles.catBody} />
-
-                    {/* Front Legs */}
-                    <path d="M 35 90 L 35 80" stroke="currentColor" strokeWidth="5" strokeLinecap="round" color="var(--text)" className={styles.legs} />
-                    <path d="M 65 90 L 65 80" stroke="currentColor" strokeWidth="5" strokeLinecap="round" color="var(--text)" className={styles.legs} />
-
-                    {/* Head Group */}
-                    <g transform="translate(50, 35)">
-                        {/* Ears */}
-                        <path d="M -15 -10 L -20 -30 L 0 -15 Z" fill="var(--text)" />
-                        <path d="M 15 -10 L 20 -30 L 0 -15 Z" fill="var(--text)" />
-
-                        {/* Head Shape */}
-                        <circle cx="0" cy="0" r="22" fill="var(--text)" />
-
-                        {/* Eyes Container */}
-                        <g> {/* No scaleX here, pupils move relative to eye sclera */}
-                            {/* Left Eye */}
-                            <circle cx="-8" cy="-2" r="7" fill="white" />
-                            <circle cx={-8 + (facingRight ? leftEyePos.x : -leftEyePos.x)} cy={-2 + leftEyePos.y} r="3.5" fill="black" />
-
-                            {/* Right Eye */}
-                            <circle cx="8" cy="-2" r="7" fill="white" />
-                            <circle cx={8 + (facingRight ? rightEyePos.x : -rightEyePos.x)} cy={-2 + rightEyePos.y} r="3.5" fill="black" />
-                        </g>
-
-                        {/* Snout */}
-                        <path d="M -2 5 L 2 5 L 0 7 Z" fill="var(--surface0)" />
-                    </g>
-                </svg>
+                <img 
+                    src={(isHitting && hitToggle) ? "/blogweb/hit.png" : "/blogweb/arm.png"} 
+                    alt="Cat"
+                    style={{
+                        height: (isHitting && hitToggle) ? '100%' : '80%',
+                        width: 'auto',
+                        objectFit: 'contain'
+                    }}
+                />
             </div>
         </div>
     );
