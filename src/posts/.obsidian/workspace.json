@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "81a9da73389e4963",
+        "id": "141b527ddbaae23e",
         "type": "tabs",
         "children": [
           {
-            "id": "89639552c30df24c",
+            "id": "02f764e896c647a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -183,12 +183,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "89639552c30df24c",
+  "active": "02f764e896c647a3",
   "lastOpenFiles": [
+    "group-theory.md",
+    "freq_squint.md",
     "Pasted image 20260607211327.png",
     "Pasted image 20260607205517.png",
     "Untitled.base",
-    "freq_squint.md",
     "mvdr-intro.md"
   ]
 }
