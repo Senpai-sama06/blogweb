@@ -3,7 +3,11 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import styles from './BlogList.module.css';
-import InteractiveCat from '@/components/InteractiveCat/InteractiveCat';
+import dynamic from 'next/dynamic';
+
+const InteractiveCat = dynamic(() => import('@/components/InteractiveCat/InteractiveCat'), {
+    ssr: false,
+});
 
 export default function BlogList({ posts }) {
     const [searchQuery, setSearchQuery] = useState('');

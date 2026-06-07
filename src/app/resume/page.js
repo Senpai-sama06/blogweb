@@ -1,11 +1,12 @@
+import Link from 'next/link';
 import styles from './resume.module.css';
+import { getResumeEntries } from '@/lib/resume';
 
 const PROJECTS = [
     {
         title: "Real-Time Audio-Visual Zoom System",
         status: "Ongoing",
         tech: "Beamforming, Deep Learning, Edge Computing, Speech Processing",
-        // description: "An end-to-end real-time speech enhancement system that leverages Neural MVDR beamforming to isolate and amplify targeted sound sources. This project introduces a novel microphone-array method capable of broadside sound localization using only two microphones, achieving a significant 20dB SINR improvement and maintaining a PESQ score above 2.5 in challenging noisy environments.",
         description: "Overlapping speech recordings are usually damage speech intelligibility and quality. Through this work I attempt to separate the target speech from the background noise and interferers, using both audio and visual cues. The result was a lightweight neural guided beamformer, fast enough to be deployed on android edge devices with the help of OBOE.",
         link: "https://github.com/Senpai-sama06",
         image: "/blogweb/project-audio-zoom.png"
@@ -20,7 +21,11 @@ const PROJECTS = [
     }
 ];
 
-export default function Resume() {
+export default async function Resume() {
+    const experiences = await getResumeEntries('experience');
+    const educations = await getResumeEntries('education');
+    const leaderships = await getResumeEntries('leadership');
+
     return (
         <div className={styles.container}>
             {/* Left Sidebar: Profile & Skills */}
@@ -58,81 +63,64 @@ export default function Resume() {
                         Download Resume
                     </a>
                 </div>
-
-                {/* <div className={styles.skillsSection}>
-                    <h3 className={styles.sectionTitleSmall}>Technical Skills</h3>
-                    <div className={styles.skillsGrid}>
-                        <span className={styles.skillTag}>DSP Algorithms</span>
-                        <span className={styles.skillTag}>SAR Processing</span>
-                        <span className={styles.skillTag}>Adaptive Beamforming</span>
-                        <span className={styles.skillTag}>Python</span>
-                        <span className={styles.skillTag}>C/C++</span>
-                        <span className={styles.skillTag}>MATLAB</span>
-                        <span className={styles.skillTag}>CUDA</span>
-                        <span className={styles.skillTag}>Verilog</span>
-                        <span className={styles.skillTag}>PyTorch</span>
-                        <span className={styles.skillTag}>NumPy/SciPy</span>
-                        <span className={styles.skillTag}>Simulink</span>
-                        <span className={styles.skillTag}>Vivado</span>
-                        <span className={styles.skillTag}>FPGA (Xilinx Zynq)</span>
-                    </div>
-                </div> */}
             </aside>
 
             {/* Right Content: Experience & Projects */}
             <main className={styles.mainContent}>
 
                 {/* Experience Section */}
-                <section>
-                    <h2 className={styles.sectionTitle}>
-                        <span>🦁</span> Experience
-                    </h2>
-                    <div className={styles.timeline}>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineCard}>
-                                <div className={styles.timelineHeader}>
-                                    <div>
-                                        <div className={styles.timelineTitle}>Signal Processing Intern</div>
-                                        <div className={styles.timelineSubtitle}>GalaxEye Space | Bangalore, India</div>
-                                    </div>
-                                    <span className={styles.timelineDate}>July 2024 – September 2024</span>
+                {experiences.length > 0 && (
+                    <section>
+                        <h2 className={styles.sectionTitle}>
+                            <span>🦁</span> Experience
+                        </h2>
+                        <div className={styles.timeline}>
+                            {experiences.map(item => (
+                                <div key={item.id} className={styles.timelineItem}>
+                                    <Link href={item.link} className={styles.timelineCard} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                                        <div className={styles.timelineHeader}>
+                                            <div>
+                                                <div className={styles.timelineTitle}>{item.title}</div>
+                                                <div className={styles.timelineSubtitle}>{item.subtitle}</div>
+                                            </div>
+                                            <span className={styles.timelineDate}>{item.date}</span>
+                                        </div>
+                                        <div className={styles.timelineDescription}>
+                                            <p dangerouslySetInnerHTML={{ __html: item.intro }} />
+                                        </div>
+                                    </Link>
                                 </div>
-                                <div className={styles.timelineDescription}>
-                                    <p>
-                                        {/* During my time at GalaxEye Space, I developed and implemented a SAR autofocus algorithm that improved overall image clarity by 50%, boosting the PSLR from 9dB to 14dB. Additionally, I accelerated the SAR backprojection pipeline by leveraging CUDA parallelization, which resulted in 20% faster processing. These algorithms were rigorously validated on over 100 droneSAR datasets under varying noise conditions and platform motion. */}
-                                        I worked on developping processing algorithms for synthetic aperture radar (SAR). We experimented the SAR payload to operate on droneborne platforms. While that is a good alternative to satellites, it comes with its own set of challenges. Due to platform instability, minute positional errors are accumulated during the flight, which results in a blurred image. To counter that my work was to design an autofocus algorithm which would solve the problem. Since such algorithms were not addressed previously, my approach was based on a fusion of the prominent point technique with the popular Phase Curvature Autofocus (PCA) algorithm.  
-                                    </p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 {/* Education Section */}
-                <section>
-                    <h2 className={styles.sectionTitle}>
-                        <span>🐱</span> Education
-                    </h2>
-                    <div className={styles.timeline}>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineCard}>
-                                <div className={styles.timelineHeader}>
-                                    <div>
-                                        <div className={styles.timelineTitle}>Integrated Bachelors and Masters Programme    </div>
-                                        <div className={styles.timelineSubtitle}>Department of Electronics and Communications Engineering, <br></br>Indian Institute of Information Technology Design and Manufacturing Kurnool</div>
-                                    </div>
-                                    <span className={styles.timelineDate}>Present</span>
+                {educations.length > 0 && (
+                    <section>
+                        <h2 className={styles.sectionTitle}>
+                            <span>🐱</span> Education
+                        </h2>
+                        <div className={styles.timeline}>
+                            {educations.map(item => (
+                                <div key={item.id} className={styles.timelineItem}>
+                                    <Link href={item.link} className={styles.timelineCard} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                                        <div className={styles.timelineHeader}>
+                                            <div>
+                                                <div className={styles.timelineTitle}>{item.title}</div>
+                                                <div className={styles.timelineSubtitle}>{item.subtitle}</div>
+                                            </div>
+                                            <span className={styles.timelineDate}>{item.date}</span>
+                                        </div>
+                                        <div className={styles.timelineDescription}>
+                                            <p dangerouslySetInnerHTML={{ __html: item.intro }} />
+                                        </div>
+                                    </Link>
                                 </div>
-                                <div className={styles.timelineDescription}>
-                                    <p>
-                                        {/* <strong>CGPA:</strong> 8.0/10<br /> */}
-                                        <strong>Relevant Coursework:</strong> Digital Signal Processing, Statistical Signal Analysis, Control Systems, Wireless Communications, Machine Learning, Computer Architecture.
-                                    </p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 {/* Projects Section */}
                 <section>
@@ -150,7 +138,9 @@ export default function Resume() {
                                     />
                                     <div className={styles.projectOverlay}>
                                         <div className={styles.overlayContent}>
-                                            <span className={styles.projectStatusOverlay}>{project.status}</span>
+                                            <span className={project.status === "Ongoing" ? styles.projectStatusOverlay : styles.projectStatusOverlay}>
+                                                {project.status}
+                                            </span>
                                             <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.overlayBtn}>
                                                 View Code
                                             </a>
@@ -172,35 +162,31 @@ export default function Resume() {
                 </section>
 
                 {/* Leadership Section */}
-                <section>
-                    <h2 className={styles.sectionTitle}>
-                        <span>🐆</span> Leadership
-                    </h2>
-                    <div className={styles.timeline}>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineCard}>
-                                <div className={styles.timelineHeader}>
-                                    <div>
-                                        <div className={styles.timelineTitle}>Vice-Chair</div>
-                                        <div className={styles.timelineSubtitle}>Society of Aeronautics Engineers<br />IIITDM Kurnool</div>
-                                    </div>
-                                    <span className={styles.timelineDate}>Aug 2025 – Present</span>
+                {leaderships.length > 0 && (
+                    <section>
+                        <h2 className={styles.sectionTitle}>
+                            <span>🐆</span> Leadership
+                        </h2>
+                        <div className={styles.timeline}>
+                            {leaderships.map(item => (
+                                <div key={item.id} className={styles.timelineItem}>
+                                    <Link href={item.link} className={styles.timelineCard} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                                        <div className={styles.timelineHeader}>
+                                            <div>
+                                                <div className={styles.timelineTitle}>{item.title}</div>
+                                                <div className={styles.timelineSubtitle}>{item.subtitle}</div>
+                                            </div>
+                                            <span className={styles.timelineDate}>{item.date}</span>
+                                        </div>
+                                        <div className={styles.timelineDescription}>
+                                            <p dangerouslySetInnerHTML={{ __html: item.intro }} />
+                                        </div>
+                                    </Link>
                                 </div>
-                            </div>
+                            ))}
                         </div>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineCard}>
-                                <div className={styles.timelineHeader}>
-                                    <div>
-                                        <div className={styles.timelineTitle}>Research Group Head</div>
-                                        <div className={styles.timelineSubtitle}>Signal Processing & Controls | Society of Electronics<br />IIITDM Kurnool</div>
-                                    </div>
-                                    <span className={styles.timelineDate}>Aug 2024 – Aug 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
             </main>
         </div>

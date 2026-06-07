@@ -33,7 +33,7 @@
   --primary: var(--mauve);
   --secondary: var(--surface0);
   --accent: var(--pink);
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 * {
